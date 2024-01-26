@@ -21,6 +21,7 @@
 		BD34377F2B63BF6F001F69F5 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34377E2B63BF6F001F69F5 /* NavigationDelegate.swift */; };
 		BD3437822B63C06E001F69F5 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437812B63C06E001F69F5 /* MasterNavigationController.swift */; };
 		BD3437842B63C1CA001F69F5 /* AppRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437832B63C1CA001F69F5 /* AppRepresentable.swift */; };
+		BD3437862B63C850001F69F5 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437852B63C850001F69F5 /* AppButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		BD34377E2B63BF6F001F69F5 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		BD3437812B63C06E001F69F5 /* MasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
 		BD3437832B63C1CA001F69F5 /* AppRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRepresentable.swift; sourceTree = "<group>"; };
+		BD3437852B63C850001F69F5 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				BD3437812B63C06E001F69F5 /* MasterNavigationController.swift */,
 				BD3437832B63C1CA001F69F5 /* AppRepresentable.swift */,
+				BD3437852B63C850001F69F5 /* AppButton.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				BD3437822B63C06E001F69F5 /* MasterNavigationController.swift in Sources */,
 				BD34377F2B63BF6F001F69F5 /* NavigationDelegate.swift in Sources */,
 				BD3437742B63BB54001F69F5 /* InitialViewInteractor.swift in Sources */,
+				BD3437862B63C850001F69F5 /* AppButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

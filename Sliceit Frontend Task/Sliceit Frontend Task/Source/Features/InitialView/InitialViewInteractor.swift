@@ -9,6 +9,8 @@ import Foundation
 
 protocol InitialViewInteractor: AnyObject {
     func onAppear()
+    func onTapAboutUs()
+    func onTapSignIn()
 }
 
 final class InitialViewInteractorImpl: InitialViewInteractor {
@@ -29,6 +31,17 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
     }
     
     private func configureState() {
-        state.title = "Sliceit.ai - Frontend Task"
+        state.title = "Little story about the company"
+        state.btnAboutUsTitle = "About us"
+        state.btnSignInTitle = "Sign in"
     }
+    
+    func onTapAboutUs() {
+        //
+    }
+    
+    func onTapSignIn() {
+        //
+    }
+    
 }
