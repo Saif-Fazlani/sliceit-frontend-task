@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct Sliceit_Frontend_TaskApp: App {
+    
+    struct AppArchitecture: AppRepresentable {
+        func configureOperationalEnvironment() -> Orchestrator {
+            let navigationDelegate = NavigationDelegateImpl()
+            return Orchestrator(navigationDelegate: navigationDelegate)
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppArchitecture()
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.all)
         }
     }
 }

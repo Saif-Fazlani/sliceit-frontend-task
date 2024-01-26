@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */; };
-		BD3437452B639FD8001F69F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437442B639FD8001F69F5 /* ContentView.swift */; };
 		BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437462B639FDB001F69F5 /* Assets.xcassets */; };
 		BD34374A2B639FDB001F69F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437492B639FDB001F69F5 /* Preview Assets.xcassets */; };
 		BD3437542B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437532B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift */; };
 		BD34375E2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34375D2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift */; };
 		BD3437602B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34375F2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift */; };
+		BD3437702B63BB1E001F69F5 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34376F2B63BB1E001F69F5 /* InitialView.swift */; };
+		BD3437722B63BB48001F69F5 /* InitialViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437712B63BB48001F69F5 /* InitialViewState.swift */; };
+		BD3437742B63BB54001F69F5 /* InitialViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437732B63BB54001F69F5 /* InitialViewInteractor.swift */; };
+		BD3437762B63BB5E001F69F5 /* InitialAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437752B63BB5E001F69F5 /* InitialAssembler.swift */; };
+		BD34377D2B63BF3E001F69F5 /* Orchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34377C2B63BF3E001F69F5 /* Orchestrator.swift */; };
+		BD34377F2B63BF6F001F69F5 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34377E2B63BF6F001F69F5 /* NavigationDelegate.swift */; };
+		BD3437822B63C06E001F69F5 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437812B63C06E001F69F5 /* MasterNavigationController.swift */; };
+		BD3437842B63C1CA001F69F5 /* AppRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437832B63C1CA001F69F5 /* AppRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,6 @@
 /* Begin PBXFileReference section */
 		BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sliceit Frontend Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskApp.swift; sourceTree = "<group>"; };
-		BD3437442B639FD8001F69F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD3437462B639FDB001F69F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD3437492B639FDB001F69F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD34374F2B639FDB001F69F5 /* Sliceit Frontend TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sliceit Frontend TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +50,14 @@
 		BD3437592B639FDB001F69F5 /* Sliceit Frontend TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sliceit Frontend TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD34375D2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskUITests.swift; sourceTree = "<group>"; };
 		BD34375F2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BD34376F2B63BB1E001F69F5 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		BD3437712B63BB48001F69F5 /* InitialViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewState.swift; sourceTree = "<group>"; };
+		BD3437732B63BB54001F69F5 /* InitialViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewInteractor.swift; sourceTree = "<group>"; };
+		BD3437752B63BB5E001F69F5 /* InitialAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAssembler.swift; sourceTree = "<group>"; };
+		BD34377C2B63BF3E001F69F5 /* Orchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orchestrator.swift; sourceTree = "<group>"; };
+		BD34377E2B63BF6F001F69F5 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
+		BD3437812B63C06E001F69F5 /* MasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
+		BD3437832B63C1CA001F69F5 /* AppRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +109,6 @@
 				BD34376D2B63A1B4001F69F5 /* Source */,
 				BD34376C2B63A18C001F69F5 /* Tests */,
 				BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */,
-				BD3437442B639FD8001F69F5 /* ContentView.swift */,
 				BD3437462B639FDB001F69F5 /* Assets.xcassets */,
 				BD3437482B639FDB001F69F5 /* Preview Content */,
 			);
@@ -139,8 +152,48 @@
 		BD34376D2B63A1B4001F69F5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BD34376E2B63BAF9001F69F5 /* Features */,
+				BD3437802B63C05E001F69F5 /* Utilities */,
+				BD34377B2B63BEF9001F69F5 /* Orchestrator */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		BD34376E2B63BAF9001F69F5 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BD34377A2B63BEB7001F69F5 /* InitialView */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BD34377A2B63BEB7001F69F5 /* InitialView */ = {
+			isa = PBXGroup;
+			children = (
+				BD34376F2B63BB1E001F69F5 /* InitialView.swift */,
+				BD3437712B63BB48001F69F5 /* InitialViewState.swift */,
+				BD3437732B63BB54001F69F5 /* InitialViewInteractor.swift */,
+				BD3437752B63BB5E001F69F5 /* InitialAssembler.swift */,
+			);
+			path = InitialView;
+			sourceTree = "<group>";
+		};
+		BD34377B2B63BEF9001F69F5 /* Orchestrator */ = {
+			isa = PBXGroup;
+			children = (
+				BD34377C2B63BF3E001F69F5 /* Orchestrator.swift */,
+				BD34377E2B63BF6F001F69F5 /* NavigationDelegate.swift */,
+			);
+			path = Orchestrator;
+			sourceTree = "<group>";
+		};
+		BD3437802B63C05E001F69F5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BD3437812B63C06E001F69F5 /* MasterNavigationController.swift */,
+				BD3437832B63C1CA001F69F5 /* AppRepresentable.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,8 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD3437452B639FD8001F69F5 /* ContentView.swift in Sources */,
+				BD3437702B63BB1E001F69F5 /* InitialView.swift in Sources */,
+				BD3437762B63BB5E001F69F5 /* InitialAssembler.swift in Sources */,
+				BD34377D2B63BF3E001F69F5 /* Orchestrator.swift in Sources */,
 				BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */,
+				BD3437722B63BB48001F69F5 /* InitialViewState.swift in Sources */,
+				BD3437842B63C1CA001F69F5 /* AppRepresentable.swift in Sources */,
+				BD3437822B63C06E001F69F5 /* MasterNavigationController.swift in Sources */,
+				BD34377F2B63BF6F001F69F5 /* NavigationDelegate.swift in Sources */,
+				BD3437742B63BB54001F69F5 /* InitialViewInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
