@@ -22,15 +22,28 @@ final class NavigationDelegateImpl: NavigationDelegate {
     
     private func launchInitialFlow(orchestrator: Orchestrator) {
         let initialViewState = InitialViewState()
-        let initialLoader = InitialAssembler.assambleInitialView(state: initialViewState) { route in
+        let initialView = InitialAssembler.assambleInitialView(state: initialViewState) { route in
+            switch route {
+            case .next:
+                self.launchLoginFlow(orchestrator: orchestrator)
+            case .back:
+                self.masterRootNavigationController.pop()
+            }
+        }
+        masterRootNavigationController.push(to: initialView)
+    }
+    
+    private func launchLoginFlow(orchestrator: Orchestrator) {
+        let loginViewState = LoginViewState()
+        let loginView = LoginViewAssembler.assambleLoginView(state: loginViewState) { route in
             switch route {
             case .next:
                 break
             case .back:
-                break
+                self.masterRootNavigationController.pop()
             }
         }
-        masterRootNavigationController.push(to: initialLoader)
+        masterRootNavigationController.push(to: loginView)
     }
     
 }

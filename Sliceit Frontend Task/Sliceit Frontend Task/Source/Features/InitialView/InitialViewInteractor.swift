@@ -41,7 +41,7 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
     }
     
     func onTapSignIn() {
-        //
+        navigationAction(.next)
     }
     
 }

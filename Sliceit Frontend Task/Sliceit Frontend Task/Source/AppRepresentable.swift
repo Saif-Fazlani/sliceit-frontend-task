@@ -13,7 +13,7 @@ protocol AppRepresentable: UIViewControllerRepresentable where UIViewControllerT
 
 extension AppRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        var orchestrator: Orchestrator = configureOperationalEnvironment()
+        let orchestrator: Orchestrator = configureOperationalEnvironment()
         return orchestrator.bootstrap()
     }
 
