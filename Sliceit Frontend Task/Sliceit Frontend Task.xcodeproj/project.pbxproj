@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */; };
+		BD3437452B639FD8001F69F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437442B639FD8001F69F5 /* ContentView.swift */; };
+		BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437462B639FDB001F69F5 /* Assets.xcassets */; };
+		BD34374A2B639FDB001F69F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437492B639FDB001F69F5 /* Preview Assets.xcassets */; };
+		BD3437542B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437532B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift */; };
+		BD34375E2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34375D2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift */; };
+		BD3437602B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34375F2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD3437502B639FDB001F69F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3437372B639FD8001F69F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD34373E2B639FD8001F69F5;
+			remoteInfo = "Sliceit Frontend Task";
+		};
+		BD34375A2B639FDB001F69F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3437372B639FD8001F69F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD34373E2B639FD8001F69F5;
+			remoteInfo = "Sliceit Frontend Task";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sliceit Frontend Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskApp.swift; sourceTree = "<group>"; };
+		BD3437442B639FD8001F69F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD3437462B639FDB001F69F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD3437492B639FDB001F69F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD34374F2B639FDB001F69F5 /* Sliceit Frontend TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sliceit Frontend TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD3437532B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskTests.swift; sourceTree = "<group>"; };
+		BD3437592B639FDB001F69F5 /* Sliceit Frontend TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sliceit Frontend TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD34375D2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskUITests.swift; sourceTree = "<group>"; };
+		BD34375F2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD34373C2B639FD8001F69F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD34374C2B639FDB001F69F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD3437562B639FDB001F69F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD3437362B639FD8001F69F5 = {
+			isa = PBXGroup;
+			children = (
+				BD3437412B639FD8001F69F5 /* Sliceit Frontend Task */,
+				BD3437402B639FD8001F69F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD3437402B639FD8001F69F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */,
+				BD34374F2B639FDB001F69F5 /* Sliceit Frontend TaskTests.xctest */,
+				BD3437592B639FDB001F69F5 /* Sliceit Frontend TaskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD3437412B639FD8001F69F5 /* Sliceit Frontend Task */ = {
+			isa = PBXGroup;
+			children = (
+				BD34376D2B63A1B4001F69F5 /* Source */,
+				BD34376C2B63A18C001F69F5 /* Tests */,
+				BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */,
+				BD3437442B639FD8001F69F5 /* ContentView.swift */,
+				BD3437462B639FDB001F69F5 /* Assets.xcassets */,
+				BD3437482B639FDB001F69F5 /* Preview Content */,
+			);
+			path = "Sliceit Frontend Task";
+			sourceTree = "<group>";
+		};
+		BD3437482B639FDB001F69F5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BD3437492B639FDB001F69F5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD3437522B639FDB001F69F5 /* Sliceit Frontend TaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD3437532B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift */,
+			);
+			path = "Sliceit Frontend TaskTests";
+			sourceTree = "<group>";
+		};
+		BD34375C2B639FDB001F69F5 /* Sliceit Frontend TaskUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD34375D2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift */,
+				BD34375F2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift */,
+			);
+			path = "Sliceit Frontend TaskUITests";
+			sourceTree = "<group>";
+		};
+		BD34376C2B63A18C001F69F5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BD3437522B639FDB001F69F5 /* Sliceit Frontend TaskTests */,
+				BD34375C2B639FDB001F69F5 /* Sliceit Frontend TaskUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BD34376D2B63A1B4001F69F5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD34373E2B639FD8001F69F5 /* Sliceit Frontend Task */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD3437632B639FDB001F69F5 /* Build configuration list for PBXNativeTarget "Sliceit Frontend Task" */;
+			buildPhases = (
+				BD34373B2B639FD8001F69F5 /* Sources */,
+				BD34373C2B639FD8001F69F5 /* Frameworks */,
+				BD34373D2B639FD8001F69F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sliceit Frontend Task";
+			productName = "Sliceit Frontend Task";
+			productReference = BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD34374E2B639FDB001F69F5 /* Sliceit Frontend TaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD3437662B639FDB001F69F5 /* Build configuration list for PBXNativeTarget "Sliceit Frontend TaskTests" */;
+			buildPhases = (
+				BD34374B2B639FDB001F69F5 /* Sources */,
+				BD34374C2B639FDB001F69F5 /* Frameworks */,
+				BD34374D2B639FDB001F69F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD3437512B639FDB001F69F5 /* PBXTargetDependency */,
+			);
+			name = "Sliceit Frontend TaskTests";
+			productName = "Sliceit Frontend TaskTests";
+			productReference = BD34374F2B639FDB001F69F5 /* Sliceit Frontend TaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD3437582B639FDB001F69F5 /* Sliceit Frontend TaskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD3437692B639FDB001F69F5 /* Build configuration list for PBXNativeTarget "Sliceit Frontend TaskUITests" */;
+			buildPhases = (
+				BD3437552B639FDB001F69F5 /* Sources */,
+				BD3437562B639FDB001F69F5 /* Frameworks */,
+				BD3437572B639FDB001F69F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD34375B2B639FDB001F69F5 /* PBXTargetDependency */,
+			);
+			name = "Sliceit Frontend TaskUITests";
+			productName = "Sliceit Frontend TaskUITests";
+			productReference = BD3437592B639FDB001F69F5 /* Sliceit Frontend TaskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD3437372B639FD8001F69F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					BD34373E2B639FD8001F69F5 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					BD34374E2B639FDB001F69F5 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = BD34373E2B639FD8001F69F5;
+					};
+					BD3437582B639FDB001F69F5 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = BD34373E2B639FD8001F69F5;
+					};
+				};
+			};
+			buildConfigurationList = BD34373A2B639FD8001F69F5 /* Build configuration list for PBXProject "Sliceit Frontend Task" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD3437362B639FD8001F69F5;
+			productRefGroup = BD3437402B639FD8001F69F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD34373E2B639FD8001F69F5 /* Sliceit Frontend Task */,
+				BD34374E2B639FDB001F69F5 /* Sliceit Frontend TaskTests */,
+				BD3437582B639FDB001F69F5 /* Sliceit Frontend TaskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD34373D2B639FD8001F69F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD34374A2B639FDB001F69F5 /* Preview Assets.xcassets in Resources */,
+				BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD34374D2B639FDB001F69F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD3437572B639FDB001F69F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD34373B2B639FD8001F69F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD3437452B639FD8001F69F5 /* ContentView.swift in Sources */,
+				BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD34374B2B639FDB001F69F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD3437542B639FDB001F69F5 /* Sliceit_Frontend_TaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD3437552B639FDB001F69F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD34375E2B639FDB001F69F5 /* Sliceit_Frontend_TaskUITests.swift in Sources */,
+				BD3437602B639FDB001F69F5 /* Sliceit_Frontend_TaskUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD3437512B639FDB001F69F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD34373E2B639FD8001F69F5 /* Sliceit Frontend Task */;
+			targetProxy = BD3437502B639FDB001F69F5 /* PBXContainerItemProxy */;
+		};
+		BD34375B2B639FDB001F69F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD34373E2B639FD8001F69F5 /* Sliceit Frontend Task */;
+			targetProxy = BD34375A2B639FDB001F69F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BD3437612B639FDB001F69F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD3437622B639FDB001F69F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD3437642B639FDB001F69F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sliceit Frontend Task/Preview Content\"";
+				DEVELOPMENT_TEAM = 52SGZ82A3D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saifullah.Sliceit-Frontend-Task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BD3437652B639FDB001F69F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sliceit Frontend Task/Preview Content\"";
+				DEVELOPMENT_TEAM = 52SGZ82A3D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saifullah.Sliceit-Frontend-Task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BD3437672B639FDB001F69F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52SGZ82A3D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saifullah.Sliceit-Frontend-TaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sliceit Frontend Task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sliceit Frontend Task";
+			};
+			name = Debug;
+		};
+		BD3437682B639FDB001F69F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52SGZ82A3D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saifullah.Sliceit-Frontend-TaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sliceit Frontend Task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sliceit Frontend Task";
+			};
+			name = Release;
+		};
+		BD34376A2B639FDB001F69F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52SGZ82A3D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saifullah.Sliceit-Frontend-TaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Sliceit Frontend Task";
+			};
+			name = Debug;
+		};
+		BD34376B2B639FDB001F69F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52SGZ82A3D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saifullah.Sliceit-Frontend-TaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Sliceit Frontend Task";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD34373A2B639FD8001F69F5 /* Build configuration list for PBXProject "Sliceit Frontend Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD3437612B639FDB001F69F5 /* Debug */,
+				BD3437622B639FDB001F69F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD3437632B639FDB001F69F5 /* Build configuration list for PBXNativeTarget "Sliceit Frontend Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD3437642B639FDB001F69F5 /* Debug */,
+				BD3437652B639FDB001F69F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD3437662B639FDB001F69F5 /* Build configuration list for PBXNativeTarget "Sliceit Frontend TaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD3437672B639FDB001F69F5 /* Debug */,
+				BD3437682B639FDB001F69F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD3437692B639FDB001F69F5 /* Build configuration list for PBXNativeTarget "Sliceit Frontend TaskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD34376A2B639FDB001F69F5 /* Debug */,
+				BD34376B2B639FDB001F69F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD3437372B639FD8001F69F5 /* Project object */;
+}
