@@ -28,6 +28,7 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
     
     func onAppear() {
         configureState()
+        fetchInfo()
     }
     
     private func configureState() {
@@ -44,4 +45,28 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
         navigationAction(.next)
     }
     
+    func fetchInfo() {
+        state.isLoading = true
+        Task {
+            do {
+                var payload = ServicePayload()
+                payload.setPayload(apiEndPoint: APIConstants.mainPageInfo, requestType: .get)
+                let request = HTTPAsyncManager<InfoResponse> { [weak self] data in
+                    self?.state.infoResponse = data
+                }
+                try await request.generateRequest(payload)
+                state.isLoading = false
+                
+            } catch(let error) {
+                state.isLoading = false
+                state.alertState = .init(
+                    tag: .internalError,
+                    title: "Unable to connect",
+                    message: error.localizedDescription,
+                    primaryAction: .cancel(title: "OK"),
+                    secondaryAction: nil
+                )
+            }
+        }
+    }
 }

@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - InfoResponse
-struct InfoResponse {
+struct InfoResponse: Codable {
     var success: Bool?
     var data: InfoResponseData?
 }
 
 // MARK: - DataClass
-struct InfoResponseData {
+struct InfoResponseData: Codable {
     var info: String?
 }

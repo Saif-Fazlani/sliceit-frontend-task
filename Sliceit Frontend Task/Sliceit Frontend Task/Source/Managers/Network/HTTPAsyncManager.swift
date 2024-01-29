@@ -18,14 +18,12 @@ enum ResultType<T> {
 class HTTPAsyncManager<T> where T: Codable {
     
     private let successCall: ((T) -> Void)
-    private let failureCall: ((HTTPAsyncRequestError) -> Void)
     
     private let httpAsyncDispatcher: HTTPAsyncDispatcher<T>
     private let networkMonitor: NetworkMonitor
     
-    init(success: @escaping (T) -> Void, failure: @escaping (HTTPAsyncRequestError) -> Void) {
+    init(success: @escaping (T) -> Void) {
         self.successCall = success
-        self.failureCall = failure
         self.networkMonitor = NetworkMonitorImpl()
         self.httpAsyncDispatcher = HTTPAsyncDispatcher<T>()
     }
@@ -47,36 +45,28 @@ class HTTPAsyncManager<T> where T: Codable {
                                     body: payload.getParameters(),
                                     timeoutInterval: payload.getTimeoutInterval())
         
-        await execute(request: urlRequest)
+        try await execute(request: urlRequest)
     }
     
-    private func execute(request: URLRequest) async {
+    private func execute(request: URLRequest) async throws {
         do {
             let (data, response) = try await dataTask(for: request)
             logPayload(request: request, response: (data, response))
             let parsedResponse = httpAsyncDispatcher.parse(data)
-            processParsedResult(result: parsedResponse, statusCode: response.statusCode)
+            try await processParsedResult(result: parsedResponse, statusCode: response.statusCode)
         } catch {
-            failureCall(HTTPAsyncRequestError.unknown)
+            throw HTTPAsyncRequestError.unknown
         }
     }
     
-    private func processParsedResult(result: Result<T, HTTPAsyncRequestError>, statusCode: Int) {
+    private func processParsedResult(result: Result<T, HTTPAsyncRequestError>, statusCode: Int) async throws {
         switch result {
         case .success(let response):
-            let requestResult = httpAsyncDispatcher.verify(response: response, statusCode: statusCode)
-            switch requestResult {
-            case .success(let response):
-                guard let data = response else {
-                    failureCall(HTTPAsyncRequestError.empty)
-                    return
-                }
-                successCall(data)
-            case .failure(let error):
-                failureCall(error)
-            }
+            let responseResult = try await httpAsyncDispatcher.verify(response: response, statusCode: statusCode)
+            guard let responseResult else { throw HTTPAsyncRequestError.empty }
+            successCall(responseResult)
         case .failure(let error):
-            failureCall(error)
+            throw error
         }
     }
     

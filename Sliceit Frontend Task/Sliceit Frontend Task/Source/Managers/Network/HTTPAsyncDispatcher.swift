@@ -36,28 +36,29 @@ class HTTPAsyncDispatcher<T> where T: Codable {
         }
     }
     
-    func verify(response: T?, statusCode: Int) -> Result<T?, HTTPAsyncRequestError> {
+    func verify(response: T?, statusCode: Int) async throws -> T? {
         switch statusCode {
         case 200..<300:
-            guard let response else {
-                return .failure(.empty)
+            guard let response = response else {
+                throw HTTPAsyncRequestError.empty
             }
-            return .success(response)
+            return response
         case 401:
-            return .failure(HTTPAsyncRequestError.unauthorized)
+            throw HTTPAsyncRequestError.unauthorized
         case 403:
-            return .failure(HTTPAsyncRequestError.forbidden)
+            throw HTTPAsyncRequestError.forbidden
         case 404:
-            return .failure(HTTPAsyncRequestError.notFound)
+            throw HTTPAsyncRequestError.notFound
         case 500:
-            return .failure(HTTPAsyncRequestError.internalServerError)
+            throw HTTPAsyncRequestError.internalServerError
         case 502:
-            return .failure(HTTPAsyncRequestError.badGateway)
+            throw HTTPAsyncRequestError.badGateway
         case 503:
-            return .failure(HTTPAsyncRequestError.serviceUnavailable)
+            throw HTTPAsyncRequestError.serviceUnavailable
         default:
-            return .failure(HTTPAsyncRequestError.unknown)
+            throw HTTPAsyncRequestError.unknown
         }
     }
+
     
 }
