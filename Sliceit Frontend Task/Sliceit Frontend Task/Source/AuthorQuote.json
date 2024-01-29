@@ -1,0 +1,8 @@
+{
+    "success": true,
+    "data": {
+        "quoteId": 1,
+        "authorId": 1,
+        "quote": "A day without laughter is a day wasted."
+    }
+}

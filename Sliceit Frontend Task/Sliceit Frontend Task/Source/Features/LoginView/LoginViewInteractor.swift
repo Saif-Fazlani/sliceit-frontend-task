@@ -13,6 +13,7 @@ protocol LoginViewInteractor: AnyObject {
     func updateEmail(value: String)
     func updatePassword(value: String)
     func updatePasswordSecureState(value: Bool)
+    func validateSubmit()
     func onSubmit()
 }
 
@@ -40,7 +41,9 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
         
         state.tfPasswordLabel = "Password"
         state.tfPasswordPlaceholder = "Enter password"
-        state.errorMsgPassword = "Invalid password"
+        state.errorMsgPassword = "Must be 8 characters with at least 1 letter and 1 digit."
+        
+        state.btnSubmitTitle = "Submit"
     }
     
     func onTapBack() {
@@ -59,6 +62,15 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
     
     func updatePasswordSecureState(value: Bool) {
         state.isTfPasswordSecure = value
+    }
+    
+    func validateSubmit() {
+        state.isSubmitDisabled = !(
+            state.hasEditedEmail
+            && state.isEmailValid
+            && state.hasEditedPassword
+            && state.isPasswordValid
+        )
     }
     
     func onSubmit() {

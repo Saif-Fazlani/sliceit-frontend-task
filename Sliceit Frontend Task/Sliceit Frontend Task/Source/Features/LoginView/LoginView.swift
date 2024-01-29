@@ -41,7 +41,11 @@ struct LoginView: View {
                 placeholder: state.tfEmailPlaceholder,
                 errorMessage: state.errorMsgEmail,
                 keyboardType: .emailAddress,
-                isValid: state.isEmailValid
+                isValid: state.isEmailValid,
+                didChangeText: {
+                    state.hasEditedEmail = true
+                    interactor.validateSubmit()
+                }
             )
             
             //3
@@ -57,7 +61,11 @@ struct LoginView: View {
                 errorMessage: state.errorMsgPassword,
                 keyboardType: .default,
                 isValid: state.isPasswordValid,
-                showEyeIcon: true
+                showEyeIcon: true,
+                didChangeText: {
+                    state.hasEditedPassword = true
+                    interactor.validateSubmit()
+                }
             )
             
             //4
@@ -65,7 +73,12 @@ struct LoginView: View {
             
             //5
             AppButton(title: state.btnSubmitTitle,
+                      backgroundColor: .accentColor,
+                      borderWidth: 0.0,
+                      textColor: .white,
+                      isDisabled: state.isSubmitDisabled,
                       onButtonTap: interactor.onSubmit)
+            .padding()
             
         }
         .padding([.leading, .trailing], 16)
@@ -82,6 +95,7 @@ struct LoginView_Previews: PreviewProvider {
         func updateEmail(value: String) {}
         func updatePassword(value: String) {}
         func updatePasswordSecureState(value: Bool) {}
+        func validateSubmit() {}
         func onSubmit() {}
     }
     static var previews: some View {

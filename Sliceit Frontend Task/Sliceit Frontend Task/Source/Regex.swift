@@ -14,7 +14,7 @@ class Regex {
     }
     
     static func password() -> String {
-        return "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{7,}$"
+        return "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$"
     }
     
 }

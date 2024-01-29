@@ -16,9 +16,9 @@ struct AppTextField: View {
     var placeholder: String
     var errorMessage: String
     var keyboardType: UIKeyboardType
-    var didChangeText: (() -> Void)?
     var isValid: Bool = false
     var showEyeIcon: Bool = false
+    var didChangeText: (() -> Void)?
     
     @ViewBuilder
     private var textField: some View {

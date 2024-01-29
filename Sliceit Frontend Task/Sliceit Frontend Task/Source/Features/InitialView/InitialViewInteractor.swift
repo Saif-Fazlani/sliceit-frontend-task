@@ -59,25 +59,11 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
                 
             } catch(let error) {
                 state.isLoading = false
+                print(error.localizedDescription)
                 // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = loadMockData() else { return }
+                guard let mockData = MockDataManager<InfoResponse>.loadMockData(fileName: "Info") else { return }
                 state.infoResponse = mockData
             }
-        }
-    }
-    
-    func loadMockData() -> InfoResponse? {
-        if let fileURL = Bundle.main.url(forResource: "Info", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: fileURL)
-                return try JSONDecoder().decode(InfoResponse.self, from: data)
-            } catch {
-                print("Error decoding JSON: \(error)")
-                return nil
-            }
-        } else {
-            print("JSON file not found.")
-            return nil
         }
     }
 }
