@@ -23,20 +23,20 @@ public enum HTTPAsyncRequestError: Error, LocalizedError {
     case noInternetConnection
 }
 
-class HTTPAsyncDispatcher<T> where T: Codable {
+class HTTPAsyncDispatcher<Response> where Response: Decodable {
     
-    func parse(_ data: Data?) -> Result<T, HTTPAsyncRequestError> {
-        guard let data = data else { return .failure(HTTPAsyncRequestError.badResponse) }
+    func parse(_ data: Data?) async throws -> Response {
+        guard let data = data else { throw HTTPAsyncRequestError.badResponse }
         do {
             let decoder = JSONDecoder()
-            let response = try decoder.decode(T.self, from: data)
-            return .success(response)
+            let response = try decoder.decode(Response.self, from: data)
+            return response
         } catch let exception {
-            return .failure(HTTPAsyncRequestError.parseError("Parsable error: \(exception.localizedDescription)"))
+            throw HTTPAsyncRequestError.parseError("Parsable error: \(exception.localizedDescription)")
         }
     }
     
-    func verify(response: T?, statusCode: Int) async throws -> T? {
+    func verify(response: Response?, statusCode: Int) async throws -> Response? {
         switch statusCode {
         case 200..<300:
             guard let response = response else {

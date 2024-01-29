@@ -15,20 +15,17 @@ enum ResultType<T> {
     case failure(HTTPAsyncRequestError)
 }
 
-class HTTPAsyncManager<T> where T: Codable {
+class HTTPAsyncManager<Response: Decodable> {
     
-    private let successCall: ((T) -> Void)
-    
-    private let httpAsyncDispatcher: HTTPAsyncDispatcher<T>
+    private let httpAsyncDispatcher: HTTPAsyncDispatcher<Response>
     private let networkMonitor: NetworkMonitor
     
-    init(success: @escaping (T) -> Void) {
-        self.successCall = success
+    init() {
         self.networkMonitor = NetworkMonitorImpl()
-        self.httpAsyncDispatcher = HTTPAsyncDispatcher<T>()
+        self.httpAsyncDispatcher = HTTPAsyncDispatcher<Response>()
     }
     
-    func generateRequest(_ payload: ServicePayload) async throws {
+    func generateRequest(_ payload: ServicePayload) async throws -> Response {
         try networkMonitor.checkIfOnline()
         
         let url = APIConstants.baseURL + payload.getEndPoint().orNil
@@ -44,29 +41,24 @@ class HTTPAsyncManager<T> where T: Codable {
                                     body: payload.getParameters(),
                                     timeoutInterval: payload.getTimeoutInterval())
         
-        try await execute(request: urlRequest)
+        return try await execute(request: urlRequest)
     }
     
-    private func execute(request: URLRequest) async throws {
+    private func execute(request: URLRequest) async throws -> Response {
         do {
             let (data, response) = try await dataTask(for: request)
             logPayload(request: request, response: (data, response))
-            let parsedResponse = httpAsyncDispatcher.parse(data)
-            try await processParsedResult(result: parsedResponse, statusCode: response.statusCode)
+            let parsedResponse = try await httpAsyncDispatcher.parse(data)
+            return try await processParsedResult(result: parsedResponse, statusCode: response.statusCode)
         } catch {
             throw HTTPAsyncRequestError.unknown
         }
     }
     
-    private func processParsedResult(result: Result<T, HTTPAsyncRequestError>, statusCode: Int) async throws {
-        switch result {
-        case .success(let response):
-            let responseResult = try await httpAsyncDispatcher.verify(response: response, statusCode: statusCode)
-            guard let responseResult else { throw HTTPAsyncRequestError.empty }
-            successCall(responseResult)
-        case .failure(let error):
-            throw error
-        }
+    private func processParsedResult(result: Response, statusCode: Int) async throws -> Response {
+        let responseResult = try await httpAsyncDispatcher.verify(response: result, statusCode: statusCode)
+        guard let responseResult else { throw HTTPAsyncRequestError.empty }
+        return responseResult
     }
     
     private func logPayload(request: URLRequest, response: (data: Data, response: HTTPURLResponse)) {

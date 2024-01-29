@@ -53,10 +53,8 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
             do {
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.mainPageInfo, requestType: .get)
-                let request = HTTPAsyncManager<InfoResponse> { [weak self] data in
-                    self?.state.infoResponse = data
-                }
-                try await request.generateRequest(payload)
+                let requestManager = HTTPAsyncManager<InfoResponse>()
+                state.infoResponse = try await requestManager.generateRequest(payload)
                 state.isLoading = false
                 
             } catch(let error) {
