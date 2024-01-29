@@ -25,9 +25,10 @@ struct InitialView: View {
             Spacer()
             
             //2
-            Text(state.title)
+            Text((state.infoResponse.data?.info).orNil)
                 .font(.title3)
                 .fontWeight(.medium)
+                .multilineTextAlignment(.center)
             
             //3
             Spacer()
@@ -48,6 +49,7 @@ struct InitialView: View {
         .onAppear {
             interactor.onAppear()
         }
+        .attachingAlert(state: $state.alertState)
     }
 }
 

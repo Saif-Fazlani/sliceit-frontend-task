@@ -21,7 +21,7 @@ struct AlertViewModifier<Tag: Hashable>: ViewModifier {
     @ViewBuilder
     func body(content: Content) -> some View {
         if let wrappedValue = alertAppearanceState, let secondaryAction = wrappedValue.secondaryAction {
-            content.alert(isPresented: Binding(get: { alertAppearanceState?.isShown ?? false } , set: { alertAppearanceState?.isShown = $0 })) {
+            content.alert(isPresented: Binding(get: { (alertAppearanceState?.isShown).orFalse } , set: { alertAppearanceState?.isShown = $0 })) {
                 Alert(
                     title: Text(wrappedValue.title),
                     message: wrappedValue.message.flatMap { Text($0) },
@@ -43,7 +43,7 @@ struct AlertViewModifier<Tag: Hashable>: ViewModifier {
                 )
             }
         } else if let wrappedValue = alertAppearanceState {
-            content.alert(isPresented: Binding(get: { alertAppearanceState?.isShown ?? false } , set: { alertAppearanceState?.isShown = $0 })) {
+            content.alert(isPresented: Binding(get: { (alertAppearanceState?.isShown).orFalse } , set: { alertAppearanceState?.isShown = $0 })) {
                 Alert(
                     title: Text(wrappedValue.title),
                     message: wrappedValue.message.flatMap { Text($0) },

@@ -26,6 +26,7 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
         self.navigationAction = navigation
     }
     
+    @MainActor
     func onAppear() {
         configureState()
         fetchInfo()
@@ -45,9 +46,10 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
         navigationAction(.next)
     }
     
+    @MainActor
     func fetchInfo() {
-        state.isLoading = true
         Task {
+            state.isLoading = true
             do {
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.mainPageInfo, requestType: .get)
@@ -59,14 +61,25 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
                 
             } catch(let error) {
                 state.isLoading = false
-                state.alertState = .init(
-                    tag: .internalError,
-                    title: "Unable to connect",
-                    message: error.localizedDescription,
-                    primaryAction: .cancel(title: "OK"),
-                    secondaryAction: nil
-                )
+                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
+                guard let mockData = loadMockData() else { return }
+                state.infoResponse = mockData
             }
+        }
+    }
+    
+    func loadMockData() -> InfoResponse? {
+        if let fileURL = Bundle.main.url(forResource: "Info", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: fileURL)
+                return try JSONDecoder().decode(InfoResponse.self, from: data)
+            } catch {
+                print("Error decoding JSON: \(error)")
+                return nil
+            }
+        } else {
+            print("JSON file not found.")
+            return nil
         }
     }
 }

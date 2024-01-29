@@ -30,7 +30,6 @@ class HTTPAsyncManager<T> where T: Codable {
     
     func generateRequest(_ payload: ServicePayload) async throws {
         try networkMonitor.checkIfOnline()
-        let token = UserDefaults.standard.authToken
         
         let url = APIConstants.baseURL + payload.getEndPoint().orNil
         let urlWithPercentEscapes = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)

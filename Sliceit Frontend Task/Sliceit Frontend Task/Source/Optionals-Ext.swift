@@ -12,3 +12,9 @@ extension String? {
         return self ?? ""
     }
 }
+
+extension Bool? {
+    var orFalse: Bool {
+        return self ?? false
+    }
+}

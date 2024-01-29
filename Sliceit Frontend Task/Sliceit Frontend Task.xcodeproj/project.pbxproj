@@ -24,6 +24,7 @@
 		BD05AA432B67B99300697F0C /* AuthorQuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA422B67B99300697F0C /* AuthorQuoteResponse.swift */; };
 		BD05AA472B67BA1C00697F0C /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */; };
 		BD05AA492B67C0DA00697F0C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA482B67C0DA00697F0C /* Alert.swift */; };
+		BD05AA4C2B67C52B00697F0C /* Info.json in Resources */ = {isa = PBXBuildFile; fileRef = BD05AA4B2B67C52B00697F0C /* Info.json */; };
 		BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */; };
 		BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437462B639FDB001F69F5 /* Assets.xcassets */; };
 		BD34374A2B639FDB001F69F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437492B639FDB001F69F5 /* Preview Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		BD05AA422B67B99300697F0C /* AuthorQuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorQuoteResponse.swift; sourceTree = "<group>"; };
 		BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		BD05AA482B67C0DA00697F0C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		BD05AA4B2B67C52B00697F0C /* Info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Info.json; sourceTree = "<group>"; };
 		BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sliceit Frontend Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskApp.swift; sourceTree = "<group>"; };
 		BD3437462B639FDB001F69F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 			path = Logout;
 			sourceTree = "<group>";
 		};
+		BD05AA4A2B67C4F200697F0C /* Mock Data */ = {
+			isa = PBXGroup;
+			children = (
+				BD05AA4B2B67C52B00697F0C /* Info.json */,
+			);
+			name = "Mock Data";
+			sourceTree = "<group>";
+		};
 		BD3437362B639FD8001F69F5 = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +332,7 @@
 		BD3437802B63C05E001F69F5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BD05AA4A2B67C4F200697F0C /* Mock Data */,
 				BD3437962B63D900001F69F5 /* Extensions */,
 				BD3437932B63D7C3001F69F5 /* Helpers */,
 				BD3437902B63D482001F69F5 /* Components */,
@@ -479,6 +490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD05AA4C2B67C52B00697F0C /* Info.json in Resources */,
 				BD34374A2B639FDB001F69F5 /* Preview Assets.xcassets in Resources */,
 				BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */,
 			);
