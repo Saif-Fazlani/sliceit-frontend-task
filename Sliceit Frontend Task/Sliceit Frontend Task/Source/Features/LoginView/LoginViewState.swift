@@ -9,6 +9,8 @@ import Foundation
 
 final class LoginViewState: ObservableObject {
     
+    @Published var isLoading: Bool = false
+    
     @Published var tfEmailLabel: String = ""
     @Published var tfEmailPlaceholder: String = ""
     @Published var email: String = ""
@@ -26,5 +28,7 @@ final class LoginViewState: ObservableObject {
     
     @Published var btnSubmitTitle: String = ""
     @Published var isSubmitDisabled: Bool = true
+    
+    @Published var loginResponse: LoginResponse = LoginResponse()
     
 }

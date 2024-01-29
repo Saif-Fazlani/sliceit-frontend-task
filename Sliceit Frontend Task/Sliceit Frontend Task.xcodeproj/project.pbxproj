@@ -50,7 +50,7 @@
 		BDF455082B67FE880098A05E /* LogoutResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455032B67FE880098A05E /* LogoutResponse.json */; };
 		BDF455092B67FE880098A05E /* ProfileInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455042B67FE880098A05E /* ProfileInfo.json */; };
 		BDF4550A2B67FE880098A05E /* AuthorQuote.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455052B67FE880098A05E /* AuthorQuote.json */; };
-		BDF4550B2B67FE880098A05E /* EmailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455062B67FE880098A05E /* EmailResponse.json */; };
+		BDF4550B2B67FE880098A05E /* LoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455062B67FE880098A05E /* LoginResponse.json */; };
 		BDF4550C2B67FE880098A05E /* AuthorInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455072B67FE880098A05E /* AuthorInfo.json */; };
 		BDF4550E2B67FEF60098A05E /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF4550D2B67FEF60098A05E /* MockDataManager.swift */; };
 /* End PBXBuildFile section */
@@ -119,7 +119,7 @@
 		BDF455032B67FE880098A05E /* LogoutResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LogoutResponse.json; sourceTree = "<group>"; };
 		BDF455042B67FE880098A05E /* ProfileInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileInfo.json; sourceTree = "<group>"; };
 		BDF455052B67FE880098A05E /* AuthorQuote.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorQuote.json; sourceTree = "<group>"; };
-		BDF455062B67FE880098A05E /* EmailResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmailResponse.json; sourceTree = "<group>"; };
+		BDF455062B67FE880098A05E /* LoginResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
 		BDF455072B67FE880098A05E /* AuthorInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorInfo.json; sourceTree = "<group>"; };
 		BDF4550D2B67FEF60098A05E /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,7 +234,7 @@
 				BD05AA4B2B67C52B00697F0C /* Info.json */,
 				BDF455072B67FE880098A05E /* AuthorInfo.json */,
 				BDF455052B67FE880098A05E /* AuthorQuote.json */,
-				BDF455062B67FE880098A05E /* EmailResponse.json */,
+				BDF455062B67FE880098A05E /* LoginResponse.json */,
 				BDF455032B67FE880098A05E /* LogoutResponse.json */,
 				BDF455042B67FE880098A05E /* ProfileInfo.json */,
 			);
@@ -512,7 +512,7 @@
 				BDF455092B67FE880098A05E /* ProfileInfo.json in Resources */,
 				BD05AA4C2B67C52B00697F0C /* Info.json in Resources */,
 				BDF4550A2B67FE880098A05E /* AuthorQuote.json in Resources */,
-				BDF4550B2B67FE880098A05E /* EmailResponse.json in Resources */,
+				BDF4550B2B67FE880098A05E /* LoginResponse.json in Resources */,
 				BD34374A2B639FDB001F69F5 /* Preview Assets.xcassets in Resources */,
 				BDF4550C2B67FE880098A05E /* AuthorInfo.json in Resources */,
 				BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */,

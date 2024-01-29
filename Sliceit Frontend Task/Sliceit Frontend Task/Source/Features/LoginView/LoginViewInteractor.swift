@@ -77,4 +77,34 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
         
     }
     
+    @MainActor
+    func loginUser() {
+        Task {
+            state.isLoading = true
+            do {
+                var payload = ServicePayload()
+                let parameters: [String: Any] = [
+                    "email": state.email,
+                    "password": state.password
+                ]
+                payload.setPayload(apiEndPoint: APIConstants.login,
+                                   parameters: parameters,
+                                   requestType: .get)
+                let requestManager = HTTPAsyncManager<LoginResponse>()
+                state.loginResponse = try await requestManager.generateRequest(payload)
+                state.isLoading = false
+                
+            } catch(let error) {
+                state.isLoading = false
+                print(error.localizedDescription)
+                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
+                guard let mockData = MockDataManager<LoginResponse>.loadMockData(fileName: "LoginResponse") else { return }
+                state.loginResponse = mockData
+                //
+                UserDefaults.standard.isUserLoggedIn = true
+                UserDefaults.standard.authToken = mockData.data?.token
+            }
+        }
+    }
+    
 }
