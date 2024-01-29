@@ -22,7 +22,7 @@ final class NavigationDelegateImpl: NavigationDelegate {
     
     private func launchInitialFlow(orchestrator: Orchestrator) {
         let initialViewState = InitialViewState()
-        let initialView = InitialAssembler.assambleInitialView(state: initialViewState) { route in
+        let initialView = InitialViewAssembler.assambleInitialView(state: initialViewState) { route in
             switch route {
             case .next:
                 self.launchLoginFlow(orchestrator: orchestrator)

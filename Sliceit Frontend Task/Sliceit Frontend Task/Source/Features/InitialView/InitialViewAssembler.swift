@@ -14,7 +14,7 @@ enum InitialRoute {
 
 typealias InitialViewNavigationAction = (InitialRoute) -> Void
 
-struct InitialAssembler {
+struct InitialViewAssembler {
     static func assambleInitialView(state: InitialViewState,
                          navigationAction: @escaping InitialViewNavigationAction) -> UIHostingController<InitialView> {
         let interactor = InitialViewInteractorImpl(state: state, navigation: navigationAction)
