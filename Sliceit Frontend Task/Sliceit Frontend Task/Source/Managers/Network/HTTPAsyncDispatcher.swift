@@ -36,12 +36,10 @@ class HTTPAsyncDispatcher<Response> where Response: Decodable {
         }
     }
     
-    func verify(response: Response?, statusCode: Int) async throws -> Response? {
+    func verify(response: Response?, statusCode: Int) async throws -> Response {
         switch statusCode {
         case 200..<300:
-            guard let response = response else {
-                throw HTTPAsyncRequestError.empty
-            }
+            guard let response else { throw HTTPAsyncRequestError.empty }
             return response
         case 401:
             throw HTTPAsyncRequestError.unauthorized

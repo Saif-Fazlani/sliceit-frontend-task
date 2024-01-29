@@ -57,7 +57,6 @@ class HTTPAsyncManager<Response: Decodable> {
     
     private func processParsedResult(result: Response, statusCode: Int) async throws -> Response {
         let responseResult = try await httpAsyncDispatcher.verify(response: result, statusCode: statusCode)
-        guard let responseResult else { throw HTTPAsyncRequestError.empty }
         return responseResult
     }
     

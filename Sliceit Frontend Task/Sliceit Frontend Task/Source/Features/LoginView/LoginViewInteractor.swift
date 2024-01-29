@@ -73,8 +73,9 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
         )
     }
     
+    @MainActor
     func onSubmit() {
-        
+        loginUser()
     }
     
     @MainActor
