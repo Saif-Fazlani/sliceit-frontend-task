@@ -40,12 +40,18 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
         state.btnSignOutTitle = "Sign out"
     }
     
+    private func configurePopupLabels() {
+        state.popupStepOne = "Requesting author..."
+        state.popupStepTwo = "Requesting quote..."
+    }
+    
     private func setProfileInfo(response: ProfileResponse) {
         guard let data = response.data else { return }
         state.welcomeMessage = "Welcome, \(data.fullname.orNil)!"
     }
     
-    private func setAuthorInfo(response: AuthorInfoResponse) {
+    @MainActor
+    private func setAuthorInfo(response: AuthorInfoResponse) async {
         state.isLoading = false
         guard let data = response.data else { return }
         state.authorName = data.name.orNil
@@ -53,7 +59,8 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
         state.popupStepOne.append("completed")
     }
     
-    private func setAuthorQuote(response: AuthorQuoteResponse) {
+    @MainActor
+    private func setAuthorQuote(response: AuthorQuoteResponse) async {
         state.isLoading = false
         guard let data = response.data else { return }
         state.authorQuote = data.quote.orNil
@@ -91,7 +98,7 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
             } catch(let error) {
                 print(error.localizedDescription)
                 // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<ProfileResponse>.loadMockData(fileName: Constants.Mock.profileInfo) else { return }
+                let mockData = try await MockDataManager<ProfileResponse>.loadMockData(fileName: Constants.Mock.profileInfo)
                 
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
@@ -103,50 +110,56 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     
     @MainActor
     func fetchAuthorInfo() async {
-        Task {
-            state.isLoading = true
-            state.popupStepOne = "Requesting author..."
+        state.isLoading = true
+        
+        do {
+            var payload = ServicePayload()
+            payload.setPayload(apiEndPoint: APIConstants.authorInfo(), requestType: .get)
+            let requestManager = HTTPAsyncManager<AuthorInfoResponse>()
+            let authorInfoResponse = try await requestManager.generateRequest(payload)
+            await setAuthorInfo(response: authorInfoResponse)
+            
+        } catch(let error) {
+            print(error.localizedDescription)
+            // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
             
             do {
-                var payload = ServicePayload()
-                payload.setPayload(apiEndPoint: APIConstants.authorInfo(), requestType: .get)
-                let requestManager = HTTPAsyncManager<AuthorInfoResponse>()
-                let authorInfoResponse = try await requestManager.generateRequest(payload)
-                setAuthorInfo(response: authorInfoResponse)
+                let mockData = try await MockDataManager<AuthorInfoResponse>.loadMockData(fileName: Constants.Mock.authorInfo)
+                //To simulate server response time
+                try await Task.sleep(nanoseconds: Constants.Mock.longServerResponseTime)
+                //
+                await setAuthorInfo(response: mockData)
                 
             } catch(let error) {
                 print(error.localizedDescription)
-                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<AuthorInfoResponse>.loadMockData(fileName: Constants.Mock.authorInfo) else { return }
-                
-                //To simulate server response time
-                try await Task.sleep(nanoseconds: Constants.Mock.longServerResponseTime)
-                setAuthorInfo(response: mockData)
             }
         }
     }
     
     @MainActor
     func fetchAuthorQuote() async {
-        Task {
-            state.isLoading = true
-            state.popupStepTwo = "Requesting quote..."
+        state.isLoading = true
+        
+        do {
+            var payload = ServicePayload()
+            payload.setPayload(apiEndPoint: APIConstants.authorQuote(authorId: state.authorId), requestType: .get)
+            let requestManager = HTTPAsyncManager<AuthorQuoteResponse>()
+            let authorQuoteResponse = try await requestManager.generateRequest(payload)
+            await setAuthorQuote(response: authorQuoteResponse)
             
+        } catch(let error) {
+            print(error.localizedDescription)
+            // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
             do {
-                var payload = ServicePayload()
-                payload.setPayload(apiEndPoint: APIConstants.authorQuote(authorId: state.authorId), requestType: .get)
-                let requestManager = HTTPAsyncManager<AuthorQuoteResponse>()
-                let authorQuoteResponse = try await requestManager.generateRequest(payload)
-                setAuthorQuote(response: authorQuoteResponse)
-                
-            } catch(let error) {
-                print(error.localizedDescription)
-                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<AuthorQuoteResponse>.loadMockData(fileName: Constants.Mock.authorQuote) else { return }
+                let mockData = try await MockDataManager<AuthorQuoteResponse>.loadMockData(fileName: Constants.Mock.authorQuote)
                 
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.longServerResponseTime)
-                setAuthorQuote(response: mockData)
+                //
+                await setAuthorQuote(response: mockData)
+                
+            } catch(let error) {
+                print(error.localizedDescription)
             }
         }
     }
@@ -154,9 +167,12 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     @MainActor
     func fetchLongAuthorInfo() {
         longTask = Task {
+            
+            configurePopupLabels()
+            
             state.isLoading = true
             defer { state.isLoading = false }
-
+            
             do {
                 await fetchAuthorInfo()
                 //
@@ -166,7 +182,7 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
                 //
                 try Task.checkCancellation()
                 //
-                state.authorText = "\(state.authorName) said: \(state.authorQuote)"
+                processLongTaskCompletion()
                 
             } catch is CancellationError {
                 print("Task is cancelled")
@@ -175,10 +191,22 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
             }
         }
     }
-
+    
+    func processLongTaskCompletion() {
+        if !(longTask?.isCancelled).orFalse {
+            state.authorText = "\(state.authorName) said: \(state.authorQuote)"
+        } else {
+            state.authorText = ""
+        }
+        //
+        state.isPopupVisible = false
+        configurePopupLabels()
+    }
+    
     func cancelFetching() {
         longTask?.cancel()
         state.isLoading = false
         state.isPopupVisible = false
+        configurePopupLabels()
     }
 }

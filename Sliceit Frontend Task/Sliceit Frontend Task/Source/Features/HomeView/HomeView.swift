@@ -45,6 +45,8 @@ struct HomeView: View {
                 Text(state.authorText)
                     .font(.body)
                     .fontWeight(.medium)
+                    .multilineTextAlignment(.center)
+                    .padding()
                 
                 //5
                 Spacer()

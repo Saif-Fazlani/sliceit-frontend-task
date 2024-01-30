@@ -65,7 +65,7 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
             } catch(let error) {
                 print(error.localizedDescription)
                 // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<InfoResponse>.loadMockData(fileName: Constants.Mock.info) else { return }
+                let mockData = try await MockDataManager<InfoResponse>.loadMockData(fileName: Constants.Mock.info)
                 
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)

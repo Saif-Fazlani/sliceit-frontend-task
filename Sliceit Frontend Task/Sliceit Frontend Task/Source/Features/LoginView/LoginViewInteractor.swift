@@ -104,7 +104,7 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
             } catch(let error) {
                 print(error.localizedDescription)
                 // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<LoginResponse>.loadMockData(fileName: Constants.Mock.loginResponse) else { return }
+                let mockData = try await MockDataManager<LoginResponse>.loadMockData(fileName: Constants.Mock.loginResponse)
                 
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)

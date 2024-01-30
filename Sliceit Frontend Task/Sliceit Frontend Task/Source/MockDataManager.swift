@@ -7,20 +7,22 @@
 
 import Foundation
 
+enum GenericError: Error {
+    case fileNotFound
+}
+
 class MockDataManager<Response: Decodable> {
     
-    static func loadMockData(fileName: String) -> Response? {
+    static func loadMockData(fileName: String) async throws -> Response {
         if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: fileURL)
                 return try JSONDecoder().decode(Response.self, from: data)
-            } catch {
-                print("Error decoding JSON: \(error)")
-                return nil
+            } catch(let error) {
+                throw error
             }
         } else {
-            print("JSON file not found.")
-            return nil
+            throw GenericError.fileNotFound
         }
     }
     
