@@ -40,12 +40,16 @@ struct HomeView: View {
                           borderWidth: 0.0,
                           textColor: .white,
                           onButtonTap: interactor.onTapUpdate)
-                .padding()
                 
                 //4
-                Spacer()
+                Text(state.authorText)
+                    .font(.body)
+                    .fontWeight(.medium)
                 
                 //5
+                Spacer()
+                
+                //6
                 AppButton(title: state.btnSignOutTitle,
                           onButtonTap: interactor.onTapUpdate)
                 .padding()
@@ -57,7 +61,14 @@ struct HomeView: View {
             if state.isLoading {
                 ProgressView()
             }
+            
         }
+        .sheet(isPresented: .constant(state.isPopupVisible), content: {
+            PopupView(title: state.popupTitle,
+                      stepOne: state.popupStepOne,
+                      stepTwo: state.popupStepTwo,
+                      onCancelTap: interactor.onTapCancel)
+        })
         .onAppear {
             interactor.onAppear()
         }
@@ -69,6 +80,7 @@ struct HomeView_Previews: PreviewProvider {
         func onAppear() {}
         func onTapUpdate() {}
         func onTapSignOut() {}
+        func onTapCancel() {}
     }
     static var previews: some View {
         HomeView(state: HomeViewState(), interactor: Interactor())

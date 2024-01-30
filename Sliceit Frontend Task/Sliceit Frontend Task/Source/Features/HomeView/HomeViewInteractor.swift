@@ -11,6 +11,7 @@ protocol HomeViewInteractor: AnyObject {
     func onAppear()
     func onTapUpdate()
     func onTapSignOut()
+    func onTapCancel()
 }
 
 final class HomeViewInteractorImpl: HomeViewInteractor {
@@ -33,6 +34,9 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     private func configureState() {
+        state.popupTitle = "Requesting the Quote"
+        state.popupStepOne = "Step 1: Requesting the author"
+        state.popupStepTwo = "Step 2: Requesting the quote"
         state.btnUpdateTitle = "Update"
         state.btnSignOutTitle = "Sign out"
     }
@@ -54,11 +58,15 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     func onTapUpdate() {
-        //
+        state.isPopupVisible = true
     }
     
     func onTapSignOut() {
         //
+    }
+    
+    func onTapCancel() {
+        state.isPopupVisible = false
     }
     
     @MainActor

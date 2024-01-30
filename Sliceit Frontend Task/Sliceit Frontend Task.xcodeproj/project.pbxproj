@@ -57,6 +57,7 @@
 		BDF455162B68C78F0098A05E /* HomeViewAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455122B68C78F0098A05E /* HomeViewAssembler.swift */; };
 		BDF455172B68C78F0098A05E /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455132B68C78F0098A05E /* HomeViewState.swift */; };
 		BDF455192B68CB3B0098A05E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455182B68CB3B0098A05E /* Constants.swift */; };
+		BDF4551C2B68F57C0098A05E /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF4551B2B68F57C0098A05E /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		BDF455122B68C78F0098A05E /* HomeViewAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewAssembler.swift; sourceTree = "<group>"; };
 		BDF455132B68C78F0098A05E /* HomeViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewState.swift; sourceTree = "<group>"; };
 		BDF455182B68CB3B0098A05E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BDF4551B2B68F57C0098A05E /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 		BD34376D2B63A1B4001F69F5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BDF4551A2B68F56D0098A05E /* Components */,
 				BD05AA332B67B53500697F0C /* Models */,
 				BD05AA0A2B67821E00697F0C /* Managers */,
 				BD34376E2B63BAF9001F69F5 /* Features */,
@@ -422,6 +425,14 @@
 				BDF455132B68C78F0098A05E /* HomeViewState.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		BDF4551A2B68F56D0098A05E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BDF4551B2B68F57C0098A05E /* PopupView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,6 +604,7 @@
 				BD3437742B63BB54001F69F5 /* InitialViewInteractor.swift in Sources */,
 				BD3437862B63C850001F69F5 /* AppButton.swift in Sources */,
 				BD34378C2B63D079001F69F5 /* LoginViewInteractor.swift in Sources */,
+				BDF4551C2B68F57C0098A05E /* PopupView.swift in Sources */,
 				BD3437922B63D4C5001F69F5 /* AppTextField.swift in Sources */,
 				BDF4550E2B67FEF60098A05E /* MockDataManager.swift in Sources */,
 				BD05AA192B6789A500697F0C /* UserDefaults-Ext.swift in Sources */,
