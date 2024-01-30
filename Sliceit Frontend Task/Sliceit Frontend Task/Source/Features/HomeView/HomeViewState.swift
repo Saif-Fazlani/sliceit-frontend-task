@@ -9,10 +9,6 @@ import Foundation
 
 final class HomeViewState: ObservableObject {
     
-    enum AlertStateTag {
-        case internalError
-    }
-    
     @Published var isLoading: Bool = false
     @Published var welcomeMessage: String = ""
     @Published var authorText: String = ""

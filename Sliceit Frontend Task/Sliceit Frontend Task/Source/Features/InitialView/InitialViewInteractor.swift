@@ -38,7 +38,7 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
     }
     
     func onTapAboutUs() {
-        //
+        // Didn't know what action to perform on this one
     }
     
     func onTapSignIn() {
@@ -46,7 +46,8 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
     }
     
     func setInfo(response: InfoResponse) {
-        guard let data = response.data else { return }
+        guard let data = response.data,
+              response.success.orFalse == true else { return }
         state.title = data.info.orNil
     }
     

@@ -162,7 +162,6 @@
 		BD05AA0A2B67821E00697F0C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				BD05AA322B67B51100697F0C /* User */,
 				BD05AA312B67B4FD00697F0C /* Network */,
 			);
 			path = Managers;
@@ -177,17 +176,10 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		BD05AA322B67B51100697F0C /* User */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		BD05AA332B67B53500697F0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BD05AA442B67B9E100697F0C /* Logout */,
+				BD05AA442B67B9E100697F0C /* Signout */,
 				BD05AA3F2B67B97B00697F0C /* Author */,
 				BD05AA3C2B67B93100697F0C /* Profile */,
 				BD05AA352B67B54E00697F0C /* Login */,
@@ -230,12 +222,12 @@
 			path = Author;
 			sourceTree = "<group>";
 		};
-		BD05AA442B67B9E100697F0C /* Logout */ = {
+		BD05AA442B67B9E100697F0C /* Signout */ = {
 			isa = PBXGroup;
 			children = (
 				BD05AA462B67BA1C00697F0C /* SignoutResponse.swift */,
 			);
-			path = Logout;
+			path = Signout;
 			sourceTree = "<group>";
 		};
 		BD05AA4A2B67C4F200697F0C /* Mock Data */ = {

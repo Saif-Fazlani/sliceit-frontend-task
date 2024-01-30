@@ -46,14 +46,16 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     private func setProfileInfo(response: ProfileResponse) {
-        guard let data = response.data else { return }
+        guard let data = response.data,
+              response.success.orFalse == true else { return }
         state.welcomeMessage = "Welcome, \(data.fullname.orNil)!"
     }
     
     @MainActor
     private func setAuthorInfo(response: AuthorInfoResponse) async {
         state.isLoading = false
-        guard let data = response.data else { return }
+        guard let data = response.data,
+              response.success.orFalse == true else { return }
         state.authorName = data.name.orNil
         state.authorId = data.authorId.orZero.description
         state.popupStepOne.append("completed")
@@ -62,13 +64,14 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     @MainActor
     private func setAuthorQuote(response: AuthorQuoteResponse) async {
         state.isLoading = false
-        guard let data = response.data else { return }
+        guard let data = response.data,
+              response.success.orFalse == true else { return }
         state.authorQuote = data.quote.orNil
         state.popupStepTwo.append("completed")
     }
     
     func setSignOut(response: SignoutResponse) {
-        guard let data = response.data else { return }
+        guard response.success.orFalse == true else { return }
         //
         UserDefaults.standard.isUserLoggedIn = false
         UserDefaults.standard.authToken = nil

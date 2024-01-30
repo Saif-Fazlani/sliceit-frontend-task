@@ -52,8 +52,6 @@ final class NavigationDelegateImpl: NavigationDelegate {
             switch route {
             case .signout:
                 self.launchInitialFlow(orchestrator: orchestrator)
-            default:
-                return
             }
         }
         masterRootNavigationController.set(initial: homeView)

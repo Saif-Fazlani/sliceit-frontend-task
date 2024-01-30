@@ -8,8 +8,6 @@
 import SwiftUI
 
 enum HomeRoute {
-    case next
-    case back
     case signout
 }
 

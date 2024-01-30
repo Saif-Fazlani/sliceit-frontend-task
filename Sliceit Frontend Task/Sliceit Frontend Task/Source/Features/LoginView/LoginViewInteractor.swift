@@ -63,7 +63,8 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
     }
     
     func setLogin(response: LoginResponse) {
-        guard let data = response.data else { return }
+        guard let data = response.data,
+              response.success.orFalse == true else { return }
         //
         UserDefaults.standard.isUserLoggedIn = true
         UserDefaults.standard.authToken = data.token

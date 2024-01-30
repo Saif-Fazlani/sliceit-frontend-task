@@ -9,10 +9,6 @@ import Foundation
 
 final class InitialViewState: ObservableObject {
     
-    enum AlertStateTag {
-        case internalError
-    }
-    
     @Published var isLoading: Bool = false
     @Published var title: String = ""
     @Published var btnAboutUsTitle: String = ""
