@@ -20,6 +20,7 @@ enum Constants {
         
         //Response time
         static let serverResponseTime: UInt64 = 1_000_000_000 / 2
+        static let longServerResponseTime: UInt64 = 1_000_000_000 * 2
     }
     
 }

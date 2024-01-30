@@ -18,6 +18,7 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     
     private let state: HomeViewState
     private let navigationAction: HomeViewNavigationAction
+    private var longTask: Task<(), Never>?
     
     init (
         state: HomeViewState,
@@ -35,8 +36,6 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     
     private func configureState() {
         state.popupTitle = "Requesting the Quote"
-        state.popupStepOne = "Step 1: Requesting the author"
-        state.popupStepTwo = "Step 2: Requesting the quote"
         state.btnUpdateTitle = "Update"
         state.btnSignOutTitle = "Sign out"
     }
@@ -47,18 +46,26 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     private func setAuthorInfo(response: AuthorInfoResponse) {
+        state.isLoading = false
         guard let data = response.data else { return }
         state.authorName = data.name.orNil
         state.authorId = data.authorId.orZero.description
+        state.popupStepOne.append("completed")
     }
     
     private func setAuthorQuote(response: AuthorQuoteResponse) {
+        state.isLoading = false
         guard let data = response.data else { return }
         state.authorQuote = data.quote.orNil
+        state.popupStepTwo.append("completed")
     }
     
+    @MainActor
     func onTapUpdate() {
-        state.isPopupVisible = true
+        Task {
+            state.isPopupVisible = true
+            fetchLongAuthorInfo()
+        }
     }
     
     func onTapSignOut() {
@@ -66,7 +73,7 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     func onTapCancel() {
-        state.isPopupVisible = false
+        cancelFetching()
     }
     
     @MainActor
@@ -95,16 +102,17 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     @MainActor
-    func fetchAuthorInfo() {
+    func fetchAuthorInfo() async {
         Task {
             state.isLoading = true
+            state.popupStepOne = "Requesting author..."
+            
             do {
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.authorInfo(), requestType: .get)
                 let requestManager = HTTPAsyncManager<AuthorInfoResponse>()
                 let authorInfoResponse = try await requestManager.generateRequest(payload)
                 setAuthorInfo(response: authorInfoResponse)
-                state.isLoading = false
                 
             } catch(let error) {
                 print(error.localizedDescription)
@@ -112,24 +120,24 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
                 guard let mockData = MockDataManager<AuthorInfoResponse>.loadMockData(fileName: Constants.Mock.authorInfo) else { return }
                 
                 //To simulate server response time
-                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
-                state.isLoading = false
+                try await Task.sleep(nanoseconds: Constants.Mock.longServerResponseTime)
                 setAuthorInfo(response: mockData)
             }
         }
     }
     
     @MainActor
-    func fetchAuthorQuote() {
+    func fetchAuthorQuote() async {
         Task {
             state.isLoading = true
+            state.popupStepTwo = "Requesting quote..."
+            
             do {
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.authorQuote(authorId: state.authorId), requestType: .get)
                 let requestManager = HTTPAsyncManager<AuthorQuoteResponse>()
                 let authorQuoteResponse = try await requestManager.generateRequest(payload)
                 setAuthorQuote(response: authorQuoteResponse)
-                state.isLoading = false
                 
             } catch(let error) {
                 print(error.localizedDescription)
@@ -137,10 +145,40 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
                 guard let mockData = MockDataManager<AuthorQuoteResponse>.loadMockData(fileName: Constants.Mock.authorQuote) else { return }
                 
                 //To simulate server response time
-                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
-                state.isLoading = false
+                try await Task.sleep(nanoseconds: Constants.Mock.longServerResponseTime)
                 setAuthorQuote(response: mockData)
             }
         }
+    }
+    
+    @MainActor
+    func fetchLongAuthorInfo() {
+        longTask = Task {
+            state.isLoading = true
+            defer { state.isLoading = false }
+
+            do {
+                await fetchAuthorInfo()
+                //
+                try Task.checkCancellation()
+                //
+                await fetchAuthorQuote()
+                //
+                try Task.checkCancellation()
+                //
+                state.authorText = "\(state.authorName) said: \(state.authorQuote)"
+                
+            } catch is CancellationError {
+                print("Task is cancelled")
+            } catch {
+                print("Error fetching author and quote: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func cancelFetching() {
+        longTask?.cancel()
+        state.isLoading = false
+        state.isPopupVisible = false
     }
 }
