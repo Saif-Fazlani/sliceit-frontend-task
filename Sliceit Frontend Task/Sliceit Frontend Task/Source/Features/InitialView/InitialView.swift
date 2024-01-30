@@ -19,32 +19,42 @@ struct InitialView: View {
     
     var body: some View {
         
-        VStack {
+        ZStack {
             
             //1
-            Spacer()
-            
-            //2
-            Text((state.infoResponse.data?.info).orNil)
-                .font(.title3)
-                .fontWeight(.medium)
-                .multilineTextAlignment(.center)
-            
-            //3
-            Spacer()
-            
-            //4
-            HStack(spacing: 8) {
+            VStack {
                 
                 //1
-                AppButton(title: state.btnAboutUsTitle,
-                          onButtonTap: interactor.onTapAboutUs)
+                Spacer()
                 
                 //2
-                AppButton(title: state.btnSignInTitle,
-                          onButtonTap: interactor.onTapSignIn)
+                Text(state.title)
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.center)
+                
+                //3
+                Spacer()
+                
+                //4
+                HStack(spacing: 8) {
+                    
+                    //1
+                    AppButton(title: state.btnAboutUsTitle,
+                              onButtonTap: interactor.onTapAboutUs)
+                    
+                    //2
+                    AppButton(title: state.btnSignInTitle,
+                              onButtonTap: interactor.onTapSignIn)
+                }
+                .padding()
             }
-            .padding()
+            
+            //2
+            if state.isLoading {
+                ProgressView()
+            }
+            
         }
         .onAppear {
             interactor.onAppear()

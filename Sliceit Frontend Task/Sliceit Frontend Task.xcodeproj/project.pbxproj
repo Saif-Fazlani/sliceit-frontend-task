@@ -53,6 +53,11 @@
 		BDF4550B2B67FE880098A05E /* LoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455062B67FE880098A05E /* LoginResponse.json */; };
 		BDF4550C2B67FE880098A05E /* AuthorInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455072B67FE880098A05E /* AuthorInfo.json */; };
 		BDF4550E2B67FEF60098A05E /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF4550D2B67FEF60098A05E /* MockDataManager.swift */; };
+		BDF455142B68C78F0098A05E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455102B68C78F0098A05E /* HomeView.swift */; };
+		BDF455152B68C78F0098A05E /* HomeViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455112B68C78F0098A05E /* HomeViewInteractor.swift */; };
+		BDF455162B68C78F0098A05E /* HomeViewAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455122B68C78F0098A05E /* HomeViewAssembler.swift */; };
+		BDF455172B68C78F0098A05E /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455132B68C78F0098A05E /* HomeViewState.swift */; };
+		BDF455192B68CB3B0098A05E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF455182B68CB3B0098A05E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +127,11 @@
 		BDF455062B67FE880098A05E /* LoginResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
 		BDF455072B67FE880098A05E /* AuthorInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorInfo.json; sourceTree = "<group>"; };
 		BDF4550D2B67FEF60098A05E /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
+		BDF455102B68C78F0098A05E /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BDF455112B68C78F0098A05E /* HomeViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewInteractor.swift; sourceTree = "<group>"; };
+		BDF455122B68C78F0098A05E /* HomeViewAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewAssembler.swift; sourceTree = "<group>"; };
+		BDF455132B68C78F0098A05E /* HomeViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewState.swift; sourceTree = "<group>"; };
+		BDF455182B68CB3B0098A05E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +321,7 @@
 				BD05AA332B67B53500697F0C /* Models */,
 				BD05AA0A2B67821E00697F0C /* Managers */,
 				BD34376E2B63BAF9001F69F5 /* Features */,
+				BD05AA4A2B67C4F200697F0C /* Mock Data */,
 				BD3437802B63C05E001F69F5 /* Utilities */,
 				BD34377B2B63BEF9001F69F5 /* Orchestrator */,
 			);
@@ -320,6 +331,7 @@
 		BD34376E2B63BAF9001F69F5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BDF4550F2B68C6E60098A05E /* HomeView */,
 				BD3437872B63CFCF001F69F5 /* LoginView */,
 				BD34377A2B63BEB7001F69F5 /* InitialView */,
 			);
@@ -349,7 +361,6 @@
 		BD3437802B63C05E001F69F5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				BD05AA4A2B67C4F200697F0C /* Mock Data */,
 				BD3437962B63D900001F69F5 /* Extensions */,
 				BD3437932B63D7C3001F69F5 /* Helpers */,
 				BD3437902B63D482001F69F5 /* Components */,
@@ -388,6 +399,7 @@
 				BD05AA162B67894D00697F0C /* NetworkMonitor.swift */,
 				BD05AA2F2B67B30D00697F0C /* ServicePayload.swift */,
 				BDF4550D2B67FEF60098A05E /* MockDataManager.swift */,
+				BDF455182B68CB3B0098A05E /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -402,6 +414,17 @@
 				BD05AA2D2B67B26B00697F0C /* URLRequest-Ext.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		BDF4550F2B68C6E60098A05E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				BDF455102B68C78F0098A05E /* HomeView.swift */,
+				BDF455122B68C78F0098A05E /* HomeViewAssembler.swift */,
+				BDF455112B68C78F0098A05E /* HomeViewInteractor.swift */,
+				BDF455132B68C78F0098A05E /* HomeViewState.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF455162B68C78F0098A05E /* HomeViewAssembler.swift in Sources */,
 				BD05AA302B67B30D00697F0C /* ServicePayload.swift in Sources */,
 				BD05AA492B67C0DA00697F0C /* Alert.swift in Sources */,
 				BD3437702B63BB1E001F69F5 /* InitialView.swift in Sources */,
@@ -549,15 +573,18 @@
 				BD34378F2B63D079001F69F5 /* LoginViewAssembler.swift in Sources */,
 				BD05AA0F2B6785AD00697F0C /* Optionals-Ext.swift in Sources */,
 				BD34378E2B63D079001F69F5 /* LoginViewState.swift in Sources */,
+				BDF455142B68C78F0098A05E /* HomeView.swift in Sources */,
 				BD05AA3B2B67B8BB00697F0C /* LoginResponse.swift in Sources */,
 				BD05AA412B67B98700697F0C /* AuthorInfoResponse.swift in Sources */,
 				BD05AA3E2B67B95C00697F0C /* ProfileResponse.swift in Sources */,
 				BD3437762B63BB5E001F69F5 /* InitialViewAssembler.swift in Sources */,
+				BDF455192B68CB3B0098A05E /* Constants.swift in Sources */,
 				BD34377D2B63BF3E001F69F5 /* Orchestrator.swift in Sources */,
 				BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */,
 				BD3437722B63BB48001F69F5 /* InitialViewState.swift in Sources */,
 				BD3437842B63C1CA001F69F5 /* AppRepresentable.swift in Sources */,
 				BD34378D2B63D079001F69F5 /* LoginView.swift in Sources */,
+				BDF455152B68C78F0098A05E /* HomeViewInteractor.swift in Sources */,
 				BD05AA2C2B67A4FE00697F0C /* Network-Ext.swift in Sources */,
 				BD3437982B63D913001F69F5 /* String-Ext.swift in Sources */,
 				BD05AA2E2B67B26B00697F0C /* URLRequest-Ext.swift in Sources */,
@@ -573,6 +600,7 @@
 				BD3437922B63D4C5001F69F5 /* AppTextField.swift in Sources */,
 				BDF4550E2B67FEF60098A05E /* MockDataManager.swift in Sources */,
 				BD05AA192B6789A500697F0C /* UserDefaults-Ext.swift in Sources */,
+				BDF455172B68C78F0098A05E /* HomeViewState.swift in Sources */,
 				BD05AA172B67894D00697F0C /* NetworkMonitor.swift in Sources */,
 				BD05AA372B67B89A00697F0C /* InfoResponse.swift in Sources */,
 			);

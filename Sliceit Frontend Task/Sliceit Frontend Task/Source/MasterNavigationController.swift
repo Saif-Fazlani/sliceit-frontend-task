@@ -33,4 +33,10 @@ final class MasterNavigationController: UINavigationController {
         self.popViewController(animated: true)
         return self
     }
+    
+    @discardableResult
+    func set(initial viewController: UIViewController) -> Self {
+        self.setViewControllers([viewController], animated: true)
+        return self
+    }
 }

@@ -46,6 +46,11 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
         navigationAction(.next)
     }
     
+    func setInfo(data: InfoResponse) {
+        state.infoResponse = data
+        state.title = (data.data?.info).orNil
+    }
+    
     @MainActor
     func fetchInfo() {
         Task {
@@ -58,11 +63,14 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
                 state.isLoading = false
                 
             } catch(let error) {
-                state.isLoading = false
                 print(error.localizedDescription)
                 // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<InfoResponse>.loadMockData(fileName: "Info") else { return }
-                state.infoResponse = mockData
+                guard let mockData = MockDataManager<InfoResponse>.loadMockData(fileName: Constants.Mock.info) else { return }
+                
+                //To simulate server response time
+                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
+                state.isLoading = false
+                setInfo(data: mockData)
             }
         }
     }

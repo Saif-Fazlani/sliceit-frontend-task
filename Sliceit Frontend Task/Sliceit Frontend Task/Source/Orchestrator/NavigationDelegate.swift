@@ -38,12 +38,25 @@ final class NavigationDelegateImpl: NavigationDelegate {
         let loginView = LoginViewAssembler.assambleLoginView(state: loginViewState) { route in
             switch route {
             case .next:
-                break
+                self.launchHomeFlow(orchestrator: orchestrator)
             case .back:
                 self.masterRootNavigationController.pop()
             }
         }
         masterRootNavigationController.push(to: loginView)
+    }
+    
+    private func launchHomeFlow(orchestrator: Orchestrator) {
+        let homeViewState = HomeViewState()
+        let homeView = HomeViewAssembler.assambleHomeView(state: homeViewState) { route in
+            switch route {
+            case .next:
+                break
+            case .back:
+                self.masterRootNavigationController.pop()
+            }
+        }
+        masterRootNavigationController.set(initial: homeView)
     }
     
 }

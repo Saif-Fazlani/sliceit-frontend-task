@@ -96,14 +96,19 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
                 state.isLoading = false
                 
             } catch(let error) {
-                state.isLoading = false
                 print(error.localizedDescription)
                 // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
-                guard let mockData = MockDataManager<LoginResponse>.loadMockData(fileName: "LoginResponse") else { return }
+                guard let mockData = MockDataManager<LoginResponse>.loadMockData(fileName: Constants.Mock.loginResponse) else { return }
+                
+                //To simulate server response time
+                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
+                state.isLoading = false
                 state.loginResponse = mockData
                 //
                 UserDefaults.standard.isUserLoggedIn = true
                 UserDefaults.standard.authToken = mockData.data?.token
+                //
+                navigationAction(.next)
             }
         }
     }
