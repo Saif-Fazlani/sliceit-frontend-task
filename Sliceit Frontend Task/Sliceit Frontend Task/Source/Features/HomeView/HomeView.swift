@@ -66,10 +66,17 @@ struct HomeView: View {
             
         }
         .sheet(isPresented: .constant(state.isPopupVisible), content: {
-            PopupView(title: state.popupTitle,
-                      stepOne: state.popupStepOne,
-                      stepTwo: state.popupStepTwo,
-                      onCancelTap: interactor.onTapCancel)
+            ZStack {
+                //1
+                PopupView(title: state.popupTitle,
+                          stepOne: state.popupStepOne,
+                          stepTwo: state.popupStepTwo,
+                          onCancelTap: interactor.onTapCancel)
+                //2
+                if state.isLoading {
+                    ProgressView()
+                }
+            }
         })
         .onAppear {
             interactor.onAppear()
