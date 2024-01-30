@@ -33,7 +33,6 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
     }
     
     private func configureState() {
-        state.welcomeMessage = "Welcome"
         state.btnUpdateTitle = "Update"
         state.btnSignOutTitle = "Sign out"
     }

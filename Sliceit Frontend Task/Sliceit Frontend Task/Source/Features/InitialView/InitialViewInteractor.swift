@@ -33,7 +33,6 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
     }
     
     private func configureState() {
-        state.title = "Little story about the company"
         state.btnAboutUsTitle = "About us"
         state.btnSignInTitle = "Sign in"
     }
@@ -56,9 +55,9 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
         Task {
             state.isLoading = true
             do {
+                let requestManager = HTTPAsyncManager<InfoResponse>()
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.mainPageInfo, requestType: .get)
-                let requestManager = HTTPAsyncManager<InfoResponse>()
                 state.infoResponse = try await requestManager.generateRequest(payload)
                 state.isLoading = false
                 

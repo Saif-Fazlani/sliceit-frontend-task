@@ -10,6 +10,7 @@ import SwiftUI
 struct AppButton: View {
     
     var title: String
+    var width: CGFloat?
     var backgroundColor: Color = .clear
     var borderWidth: CGFloat = 1.0
     var textColor: Color = .gray
@@ -26,7 +27,7 @@ struct AppButton: View {
         .frame(height: 50)
         .fontWeight(.medium)
         .foregroundStyle(textColor)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: width == nil ? .infinity :  width)
         .background(backgroundColor.opacity(isDisabled ? 0.5 : 1.0))
         .cornerRadius(8.0)
         .overlay(
@@ -39,6 +40,7 @@ struct AppButton: View {
 
 #Preview {
     AppButton(title: "state.btnSubmitTitle",
+              width: 250,
               backgroundColor: .accentColor,
               borderWidth: 0.0,
               textColor: .white,

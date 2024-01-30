@@ -26,7 +26,6 @@ class HTTPAsyncManager<Response: Decodable> {
     }
     
     func generateRequest(_ payload: ServicePayload) async throws -> Response {
-        try networkMonitor.checkIfOnline()
         
         let url = APIConstants.baseURL + payload.getEndPoint().orNil
         let urlWithPercentEscapes = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -41,13 +40,16 @@ class HTTPAsyncManager<Response: Decodable> {
                                     body: payload.getParameters(),
                                     timeoutInterval: payload.getTimeoutInterval())
         
+        try networkMonitor.checkIfOnline()
+        
         return try await execute(request: urlRequest)
     }
     
     private func execute(request: URLRequest) async throws -> Response {
         do {
+            logRequest(request)
             let (data, response) = try await dataTask(for: request)
-            logPayload(request: request, response: (data, response))
+            logResponse(response: (data, response))
             let parsedResponse = try await httpAsyncDispatcher.parse(data)
             return try await processParsedResult(result: parsedResponse, statusCode: response.statusCode)
         } catch {
@@ -60,9 +62,8 @@ class HTTPAsyncManager<Response: Decodable> {
         return responseResult
     }
     
-    private func logPayload(request: URLRequest, response: (data: Data, response: HTTPURLResponse)) {
+    private func logRequest(_ request: URLRequest) {
         print("------------------------------------------------")
-        print("STATUS_CODE: \(response.response.statusCode)")
         print("ROUTE: \((request.url?.absoluteString).orNil)")
         print("METHOD: \(request.httpMethod.orNil)")
         print("HEADERS: \((request.allHTTPHeaderFields?.getJsonFromDictionary).orNil)")
@@ -70,6 +71,10 @@ class HTTPAsyncManager<Response: Decodable> {
         if let parameter = request.httpBody?.getJSONFromData {
             print("PARAMETERS: \(parameter)")
         }
+    }
+    
+    private func logResponse(response: (data: Data, response: HTTPURLResponse)) {
+        print("STATUS_CODE: \(response.response.statusCode)")
         
         if let dataJsonResponse = response.data.getJSONFromData {
             print(("RESPONSE: \(dataJsonResponse)"))

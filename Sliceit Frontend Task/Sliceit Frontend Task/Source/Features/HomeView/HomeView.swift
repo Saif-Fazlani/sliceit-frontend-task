@@ -35,6 +35,7 @@ struct HomeView: View {
                 
                 //3
                 AppButton(title: state.btnUpdateTitle,
+                          width: 150,
                           backgroundColor: .accentColor,
                           borderWidth: 0.0,
                           textColor: .white,
