@@ -59,7 +59,6 @@ struct InitialView: View {
         .onAppear {
             interactor.onAppear()
         }
-        .attachingAlert(state: $state.alertState)
     }
 }
 

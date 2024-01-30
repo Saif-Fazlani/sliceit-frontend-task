@@ -10,14 +10,12 @@ import Foundation
 final class LoginViewState: ObservableObject {
     
     @Published var isLoading: Bool = false
-    
     @Published var tfEmailLabel: String = ""
     @Published var tfEmailPlaceholder: String = ""
     @Published var email: String = ""
     @Published var isEmailValid: Bool = true
     @Published var hasEditedEmail: Bool = false
     @Published var errorMsgEmail: String = ""
-    
     @Published var tfPasswordLabel: String = ""
     @Published var tfPasswordPlaceholder: String = ""
     @Published var password: String = ""
@@ -25,10 +23,6 @@ final class LoginViewState: ObservableObject {
     @Published var hasEditedPassword: Bool = false
     @Published var isTfPasswordSecure: Bool = true
     @Published var errorMsgPassword: String = ""
-    
     @Published var btnSubmitTitle: String = ""
     @Published var isSubmitDisabled: Bool = true
-    
-    @Published var loginResponse: LoginResponse = LoginResponse()
-    
 }

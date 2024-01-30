@@ -18,3 +18,9 @@ extension Bool? {
         return self ?? false
     }
 }
+
+extension Int? {
+    var orZero: Int {
+        return self ?? 0
+    }
+}

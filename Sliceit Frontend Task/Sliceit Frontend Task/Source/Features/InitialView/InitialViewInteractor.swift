@@ -45,9 +45,9 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
         navigationAction(.next)
     }
     
-    func setInfo(data: InfoResponse) {
-        state.infoResponse = data
-        state.title = (data.data?.info).orNil
+    func setInfo(response: InfoResponse) {
+        guard let data = response.data else { return }
+        state.title = data.info.orNil
     }
     
     @MainActor
@@ -58,7 +58,8 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
                 let requestManager = HTTPAsyncManager<InfoResponse>()
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.mainPageInfo, requestType: .get)
-                state.infoResponse = try await requestManager.generateRequest(payload)
+                let infoResponse = try await requestManager.generateRequest(payload)
+                setInfo(response: infoResponse)
                 state.isLoading = false
                 
             } catch(let error) {
@@ -69,7 +70,7 @@ final class InitialViewInteractorImpl: InitialViewInteractor {
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
                 state.isLoading = false
-                setInfo(data: mockData)
+                setInfo(response: mockData)
             }
         }
     }

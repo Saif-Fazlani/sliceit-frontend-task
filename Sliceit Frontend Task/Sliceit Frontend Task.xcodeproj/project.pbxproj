@@ -23,7 +23,6 @@
 		BD05AA412B67B98700697F0C /* AuthorInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA402B67B98700697F0C /* AuthorInfoResponse.swift */; };
 		BD05AA432B67B99300697F0C /* AuthorQuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA422B67B99300697F0C /* AuthorQuoteResponse.swift */; };
 		BD05AA472B67BA1C00697F0C /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */; };
-		BD05AA492B67C0DA00697F0C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA482B67C0DA00697F0C /* Alert.swift */; };
 		BD05AA4C2B67C52B00697F0C /* Info.json in Resources */ = {isa = PBXBuildFile; fileRef = BD05AA4B2B67C52B00697F0C /* Info.json */; };
 		BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */; };
 		BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437462B639FDB001F69F5 /* Assets.xcassets */; };
@@ -94,7 +93,6 @@
 		BD05AA402B67B98700697F0C /* AuthorInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorInfoResponse.swift; sourceTree = "<group>"; };
 		BD05AA422B67B99300697F0C /* AuthorQuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorQuoteResponse.swift; sourceTree = "<group>"; };
 		BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
-		BD05AA482B67C0DA00697F0C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		BD05AA4B2B67C52B00697F0C /* Info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Info.json; sourceTree = "<group>"; };
 		BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sliceit Frontend Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskApp.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 		BD3437932B63D7C3001F69F5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BD05AA482B67C0DA00697F0C /* Alert.swift */,
 				BD3437942B63D7DA001F69F5 /* Regex.swift */,
 				BD05AA0C2B67831400697F0C /* Environment.swift */,
 				BD05AA162B67894D00697F0C /* NetworkMonitor.swift */,
@@ -565,7 +562,6 @@
 			files = (
 				BDF455162B68C78F0098A05E /* HomeViewAssembler.swift in Sources */,
 				BD05AA302B67B30D00697F0C /* ServicePayload.swift in Sources */,
-				BD05AA492B67C0DA00697F0C /* Alert.swift in Sources */,
 				BD3437702B63BB1E001F69F5 /* InitialView.swift in Sources */,
 				BD3437952B63D7DA001F69F5 /* Regex.swift in Sources */,
 				BD05AA112B6786DC00697F0C /* HTTPAsyncManager.swift in Sources */,

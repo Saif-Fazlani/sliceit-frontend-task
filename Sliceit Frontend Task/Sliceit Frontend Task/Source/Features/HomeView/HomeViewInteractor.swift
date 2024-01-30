@@ -37,9 +37,20 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
         state.btnSignOutTitle = "Sign out"
     }
     
-    private func setProfileInfo(data: ProfileResponse) {
-        state.profileResponse = data
-        state.welcomeMessage = "Welcome, \((data.data?.fullname).orNil)!"
+    private func setProfileInfo(response: ProfileResponse) {
+        guard let data = response.data else { return }
+        state.welcomeMessage = "Welcome, \(data.fullname.orNil)!"
+    }
+    
+    private func setAuthorInfo(response: AuthorInfoResponse) {
+        guard let data = response.data else { return }
+        state.authorName = data.name.orNil
+        state.authorId = data.authorId.orZero.description
+    }
+    
+    private func setAuthorQuote(response: AuthorQuoteResponse) {
+        guard let data = response.data else { return }
+        state.authorQuote = data.quote.orNil
     }
     
     func onTapUpdate() {
@@ -58,7 +69,8 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
                 var payload = ServicePayload()
                 payload.setPayload(apiEndPoint: APIConstants.profileInfo(), requestType: .get)
                 let requestManager = HTTPAsyncManager<ProfileResponse>()
-                state.profileResponse = try await requestManager.generateRequest(payload)
+                let profileResponse = try await requestManager.generateRequest(payload)
+                setProfileInfo(response: profileResponse)
                 state.isLoading = false
                 
             } catch(let error) {
@@ -69,7 +81,57 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
                 state.isLoading = false
-                setProfileInfo(data: mockData)
+                setProfileInfo(response: mockData)
+            }
+        }
+    }
+    
+    @MainActor
+    func fetchAuthorInfo() {
+        Task {
+            state.isLoading = true
+            do {
+                var payload = ServicePayload()
+                payload.setPayload(apiEndPoint: APIConstants.authorInfo(), requestType: .get)
+                let requestManager = HTTPAsyncManager<AuthorInfoResponse>()
+                let authorInfoResponse = try await requestManager.generateRequest(payload)
+                setAuthorInfo(response: authorInfoResponse)
+                state.isLoading = false
+                
+            } catch(let error) {
+                print(error.localizedDescription)
+                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
+                guard let mockData = MockDataManager<AuthorInfoResponse>.loadMockData(fileName: Constants.Mock.authorInfo) else { return }
+                
+                //To simulate server response time
+                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
+                state.isLoading = false
+                setAuthorInfo(response: mockData)
+            }
+        }
+    }
+    
+    @MainActor
+    func fetchAuthorQuote() {
+        Task {
+            state.isLoading = true
+            do {
+                var payload = ServicePayload()
+                payload.setPayload(apiEndPoint: APIConstants.authorQuote(authorId: state.authorId), requestType: .get)
+                let requestManager = HTTPAsyncManager<AuthorQuoteResponse>()
+                let authorQuoteResponse = try await requestManager.generateRequest(payload)
+                setAuthorQuote(response: authorQuoteResponse)
+                state.isLoading = false
+                
+            } catch(let error) {
+                print(error.localizedDescription)
+                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
+                guard let mockData = MockDataManager<AuthorQuoteResponse>.loadMockData(fileName: Constants.Mock.authorQuote) else { return }
+                
+                //To simulate server response time
+                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
+                state.isLoading = false
+                setAuthorQuote(response: mockData)
             }
         }
     }

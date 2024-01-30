@@ -17,8 +17,7 @@ final class HomeViewState: ObservableObject {
     @Published var welcomeMessage: String = ""
     @Published var btnUpdateTitle: String = ""
     @Published var btnSignOutTitle: String = ""
-    
-    @Published var profileResponse: ProfileResponse = ProfileResponse()
-    @Published var authorInfoResponse: AuthorInfoResponse = AuthorInfoResponse()
-    @Published var authorQuoteResponse: AuthorQuoteResponse = AuthorQuoteResponse()
+    @Published var authorName: String = ""
+    @Published var authorId: String = ""
+    @Published var authorQuote: String = ""
 }

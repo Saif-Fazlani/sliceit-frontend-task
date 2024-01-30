@@ -38,11 +38,9 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
         state.tfEmailLabel = "Email address"
         state.tfEmailPlaceholder = "Enter email"
         state.errorMsgEmail = "Invalid email"
-        
         state.tfPasswordLabel = "Password"
         state.tfPasswordPlaceholder = "Enter password"
         state.errorMsgPassword = "Must be 8 characters with at least 1 letter and 1 digit."
-        
         state.btnSubmitTitle = "Submit"
     }
     
@@ -62,6 +60,13 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
     
     func updatePasswordSecureState(value: Bool) {
         state.isTfPasswordSecure = value
+    }
+    
+    func setLogin(response: LoginResponse) {
+        guard let data = response.data else { return }
+        //
+        UserDefaults.standard.isUserLoggedIn = true
+        UserDefaults.standard.authToken = data.token
     }
     
     func validateSubmit() {
@@ -90,9 +95,10 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
                 ]
                 payload.setPayload(apiEndPoint: APIConstants.login,
                                    parameters: parameters,
-                                   requestType: .get)
+                                   requestType: .post)
                 let requestManager = HTTPAsyncManager<LoginResponse>()
-                state.loginResponse = try await requestManager.generateRequest(payload)
+                let loginResponse = try await requestManager.generateRequest(payload)
+                setLogin(response: loginResponse)
                 state.isLoading = false
                 
             } catch(let error) {
@@ -103,13 +109,9 @@ final class LoginViewInteractorImpl: LoginViewInteractor {
                 //To simulate server response time
                 try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
                 state.isLoading = false
-                state.loginResponse = mockData
-                //
-                UserDefaults.standard.isUserLoggedIn = true
-                UserDefaults.standard.authToken = mockData.data?.token
-                //
-                navigationAction(.next)
+                setLogin(response: mockData)
             }
+            navigationAction(.next)
         }
     }
     
