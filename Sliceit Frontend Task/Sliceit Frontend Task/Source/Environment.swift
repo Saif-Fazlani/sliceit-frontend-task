@@ -40,7 +40,7 @@ enum APIConstants {
         return (components.url?.absoluteString).orNil
     }
     
-    static func logout() -> String {
+    static func signOut() -> String {
         var components = URLComponents()
         components.path = "/logout"
         components.queryItems = [

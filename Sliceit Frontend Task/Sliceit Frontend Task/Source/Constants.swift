@@ -15,7 +15,7 @@ enum Constants {
         static let authorInfo = "AuthorInfo"
         static let authorQuote = "AuthorQuote"
         static let loginResponse = "LoginResponse"
-        static let logoutResponse = "LogoutResponse"
+        static let signOutResponse = "SignoutResponse"
         static let profileInfo = "ProfileInfo"
         
         //Response time

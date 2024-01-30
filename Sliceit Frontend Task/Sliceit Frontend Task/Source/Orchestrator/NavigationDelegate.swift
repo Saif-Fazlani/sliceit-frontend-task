@@ -30,7 +30,7 @@ final class NavigationDelegateImpl: NavigationDelegate {
                 self.masterRootNavigationController.pop()
             }
         }
-        masterRootNavigationController.push(to: initialView)
+        masterRootNavigationController.set(initial: initialView)
     }
     
     private func launchLoginFlow(orchestrator: Orchestrator) {
@@ -50,10 +50,10 @@ final class NavigationDelegateImpl: NavigationDelegate {
         let homeViewState = HomeViewState()
         let homeView = HomeViewAssembler.assambleHomeView(state: homeViewState) { route in
             switch route {
-            case .next:
-                break
-            case .back:
-                self.masterRootNavigationController.pop()
+            case .signout:
+                self.launchInitialFlow(orchestrator: orchestrator)
+            default:
+                return
             }
         }
         masterRootNavigationController.set(initial: homeView)

@@ -67,6 +67,13 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
         state.popupStepTwo.append("completed")
     }
     
+    func setSignOut(response: SignoutResponse) {
+        guard let data = response.data else { return }
+        //
+        UserDefaults.standard.isUserLoggedIn = false
+        UserDefaults.standard.authToken = nil
+    }
+    
     @MainActor
     func onTapUpdate() {
         Task {
@@ -75,8 +82,11 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
         }
     }
     
+    @MainActor
     func onTapSignOut() {
-        //
+        Task {
+            signOutUser()
+        }
     }
     
     func onTapCancel() {
@@ -208,5 +218,32 @@ final class HomeViewInteractorImpl: HomeViewInteractor {
         state.isLoading = false
         state.isPopupVisible = false
         configurePopupLabels()
+    }
+    
+    @MainActor
+    func signOutUser() {
+        Task {
+            state.isLoading = true
+            do {
+                var payload = ServicePayload()
+                payload.setPayload(apiEndPoint: APIConstants.signOut(),
+                                   requestType: .delete)
+                let requestManager = HTTPAsyncManager<SignoutResponse>()
+                let signOutResponse = try await requestManager.generateRequest(payload)
+                setSignOut(response: signOutResponse)
+                state.isLoading = false
+                
+            } catch(let error) {
+                print(error.localizedDescription)
+                // Show alert or load mock data. Here, we can use mock data, as given in the assessment pdf
+                let mockData = try await MockDataManager<SignoutResponse>.loadMockData(fileName: Constants.Mock.signOutResponse)
+                
+                //To simulate server response time
+                try await Task.sleep(nanoseconds: Constants.Mock.serverResponseTime)
+                state.isLoading = false
+                setSignOut(response: mockData)
+            }
+            navigationAction(.signout)
+        }
     }
 }

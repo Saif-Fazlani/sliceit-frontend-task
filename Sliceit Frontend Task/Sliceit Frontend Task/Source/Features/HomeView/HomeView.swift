@@ -53,7 +53,7 @@ struct HomeView: View {
                 
                 //6
                 AppButton(title: state.btnSignOutTitle,
-                          onButtonTap: interactor.onTapUpdate)
+                          onButtonTap: interactor.onTapSignOut)
                 .padding()
                 
             }

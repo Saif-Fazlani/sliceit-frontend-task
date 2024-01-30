@@ -22,7 +22,7 @@
 		BD05AA3E2B67B95C00697F0C /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA3D2B67B95C00697F0C /* ProfileResponse.swift */; };
 		BD05AA412B67B98700697F0C /* AuthorInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA402B67B98700697F0C /* AuthorInfoResponse.swift */; };
 		BD05AA432B67B99300697F0C /* AuthorQuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA422B67B99300697F0C /* AuthorQuoteResponse.swift */; };
-		BD05AA472B67BA1C00697F0C /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */; };
+		BD05AA472B67BA1C00697F0C /* SignoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05AA462B67BA1C00697F0C /* SignoutResponse.swift */; };
 		BD05AA4C2B67C52B00697F0C /* Info.json in Resources */ = {isa = PBXBuildFile; fileRef = BD05AA4B2B67C52B00697F0C /* Info.json */; };
 		BD3437432B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */; };
 		BD3437472B639FDB001F69F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3437462B639FDB001F69F5 /* Assets.xcassets */; };
@@ -46,7 +46,7 @@
 		BD3437922B63D4C5001F69F5 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437912B63D4C5001F69F5 /* AppTextField.swift */; };
 		BD3437952B63D7DA001F69F5 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437942B63D7DA001F69F5 /* Regex.swift */; };
 		BD3437982B63D913001F69F5 /* String-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3437972B63D913001F69F5 /* String-Ext.swift */; };
-		BDF455082B67FE880098A05E /* LogoutResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455032B67FE880098A05E /* LogoutResponse.json */; };
+		BDF455082B67FE880098A05E /* SignoutResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455032B67FE880098A05E /* SignoutResponse.json */; };
 		BDF455092B67FE880098A05E /* ProfileInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455042B67FE880098A05E /* ProfileInfo.json */; };
 		BDF4550A2B67FE880098A05E /* AuthorQuote.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455052B67FE880098A05E /* AuthorQuote.json */; };
 		BDF4550B2B67FE880098A05E /* LoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BDF455062B67FE880098A05E /* LoginResponse.json */; };
@@ -93,7 +93,7 @@
 		BD05AA3D2B67B95C00697F0C /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		BD05AA402B67B98700697F0C /* AuthorInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorInfoResponse.swift; sourceTree = "<group>"; };
 		BD05AA422B67B99300697F0C /* AuthorQuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorQuoteResponse.swift; sourceTree = "<group>"; };
-		BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		BD05AA462B67BA1C00697F0C /* SignoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignoutResponse.swift; sourceTree = "<group>"; };
 		BD05AA4B2B67C52B00697F0C /* Info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Info.json; sourceTree = "<group>"; };
 		BD34373F2B639FD8001F69F5 /* Sliceit Frontend Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sliceit Frontend Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3437422B639FD8001F69F5 /* Sliceit_Frontend_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliceit_Frontend_TaskApp.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		BD3437912B63D4C5001F69F5 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		BD3437942B63D7DA001F69F5 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		BD3437972B63D913001F69F5 /* String-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Ext.swift"; sourceTree = "<group>"; };
-		BDF455032B67FE880098A05E /* LogoutResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LogoutResponse.json; sourceTree = "<group>"; };
+		BDF455032B67FE880098A05E /* SignoutResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SignoutResponse.json; sourceTree = "<group>"; };
 		BDF455042B67FE880098A05E /* ProfileInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileInfo.json; sourceTree = "<group>"; };
 		BDF455052B67FE880098A05E /* AuthorQuote.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorQuote.json; sourceTree = "<group>"; };
 		BDF455062B67FE880098A05E /* LoginResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		BD05AA442B67B9E100697F0C /* Logout */ = {
 			isa = PBXGroup;
 			children = (
-				BD05AA462B67BA1C00697F0C /* LogoutResponse.swift */,
+				BD05AA462B67BA1C00697F0C /* SignoutResponse.swift */,
 			);
 			path = Logout;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				BDF455072B67FE880098A05E /* AuthorInfo.json */,
 				BDF455052B67FE880098A05E /* AuthorQuote.json */,
 				BDF455062B67FE880098A05E /* LoginResponse.json */,
-				BDF455032B67FE880098A05E /* LogoutResponse.json */,
+				BDF455032B67FE880098A05E /* SignoutResponse.json */,
 				BDF455042B67FE880098A05E /* ProfileInfo.json */,
 			);
 			name = "Mock Data";
@@ -539,7 +539,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDF455082B67FE880098A05E /* LogoutResponse.json in Resources */,
+				BDF455082B67FE880098A05E /* SignoutResponse.json in Resources */,
 				BDF455092B67FE880098A05E /* ProfileInfo.json in Resources */,
 				BD05AA4C2B67C52B00697F0C /* Info.json in Resources */,
 				BDF4550A2B67FE880098A05E /* AuthorQuote.json in Resources */,
@@ -599,7 +599,7 @@
 				BD34377F2B63BF6F001F69F5 /* NavigationDelegate.swift in Sources */,
 				BD05AA2A2B67A37900697F0C /* HTTPAsyncDispatcher.swift in Sources */,
 				BD05AA392B67B8B100697F0C /* LoginRequest.swift in Sources */,
-				BD05AA472B67BA1C00697F0C /* LogoutResponse.swift in Sources */,
+				BD05AA472B67BA1C00697F0C /* SignoutResponse.swift in Sources */,
 				BD05AA0D2B67831400697F0C /* Environment.swift in Sources */,
 				BD3437742B63BB54001F69F5 /* InitialViewInteractor.swift in Sources */,
 				BD3437862B63C850001F69F5 /* AppButton.swift in Sources */,
