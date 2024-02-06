@@ -16,6 +16,6 @@ struct AuthorQuoteResponse: Codable {
 // MARK: - DataClass
 struct AuthorQuoteResponseData: Codable {
     var quoteId: Int?
-    var authorId: Int?
+    var authorId: String?
     var quote: String?
 }
